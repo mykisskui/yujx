@@ -1,0 +1,104 @@
+﻿@{
+    Layout = string.Empty;
+}
+<html>
+<head>
+    <title>文章列表</title>
+    <link href="/blog/css/AdminArticle.css" rel="stylesheet" />
+    <style>
+        .type {
+            text-decoration: none;
+            background: #8c304a;
+            padding: 5px 10px;
+            color: #fff;
+        }
+        a[target=_blank]{
+                text-decoration:none;
+                color:#000;
+                text-align:right;
+            }
+        .TitleMark {
+            position: absolute;
+            right: 0;
+            padding: 2px 0px;
+            top: 0;
+            background: #9e7f93;
+        }
+            .TitleMark::after {
+                content: '链';
+                padding: 0px 5px 0 7px;
+                font-size: 12px;
+                font-weight: 100;
+                color: #fff;
+            }
+    </style>
+        
+
+    
+</head>
+
+<body>
+    <div class="ArticleList">
+            <div class="ArticleListData">
+                <table>
+                    <tr>
+                        <td>编号</td>
+                        <td>标题</td>
+                        <td>作者</td>
+                        <td>发布时间</td>
+                        <td>类型</td>
+                        <td>浏览量</td>
+                        <td>评论量</td>
+                        <td>显示</td>
+                        <td>操作</td>
+                    </tr>
+
+                    @{
+                        foreach(Mykisskui.article item in ViewBag.data){
+                                 <tr>
+                        <td>@item.Id</td>
+                        <td>
+                          <a href="/blog/New/@item.Id" target="_blank">@item.Title</a>
+                            <a class="TitleMark"></a>
+                        </td>
+                        <td>@item.author</td>
+                        <td>@item.Time.Value.ToString("yyyy-MM-dd")</td>
+                        <td ><a class="type">@Mykisskui.Models.Configs.TypeToString(Int32.Parse(item.type.ToString()))</a></td> 
+                        <td>@item.read</td>
+                        <td>@item.tread</td>
+                        <td>
+                            <a class="Enable" data-status="@item.Enable" data-aim="enable" data-type='article' data-id="@item.Id" href="javascript:void(0);">@*@(item.Enable == true ? "显示" : "隐藏")*@</a>
+                        </td>
+                        <td>
+                            <a href="/Admin/articleAdd/@item.Id" data-status="remove" data-aim="remove" data-type='article' data-id="@item.Id">编辑</a>
+                            <a href="javascript:void(0);" data-status="remove" data-aim="remove" data-type='article' data-id="@item.Id">删除</a>
+                        </td>
+                     </tr>
+                        }
+                    }
+                </table>
+                        
+                <div class="Admin_page">
+
+                    @{
+                        int pageIndex = Mykisskui.Models.Model.NewListPageModel.PageIndex;
+                        int pagecount = Mykisskui.Models.Model.NewListPageModel.PageCount;
+                        int pageConfig = 5;
+                        int _count = (pageIndex - 1 + pageConfig) >= pagecount ? pagecount : pageIndex - 1 + pageConfig;
+                        
+                        
+                          <ul>
+                            @for (int i = 1; i <= pagecount; i++)
+                            {
+                                    <li><a href="/Admin/articleList/@i">@i</a></li>
+                            }
+                        </ul>
+                    }
+                      
+                </div>
+            </div>
+    </div>
+    <script src="~/js/jquery-1.8.2.min.js"></script>
+    <script src="/blog/js/base.js" type="text/javascript"></script>
+</body>
+</html>

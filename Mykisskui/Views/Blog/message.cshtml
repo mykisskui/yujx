@@ -1,0 +1,53 @@
+﻿@{
+    Layout = string.Empty;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>留言板</title>
+    <meta name="keywords" content="个人博客,不知名,yujx" />
+    <meta name="description" content="yujx留言板" />
+    <link href="/blog/css/base.css" rel="stylesheet">
+    <link href="/blog/css/style.css" rel="stylesheet">
+    <link href="/blog/css/media.css" rel="stylesheet">
+    <link href="/blog/css/index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+    <div class="ibody">
+        @Html.Partial("Menu");
+
+        <article>
+            <div class="index_about">
+                <!-- 多说评论框 start -->
+                <div class="ds-thread" data-thread-key="1" data-title="yujx留言板" data-url="http://www.yujx.org/blog/message"></div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                    var duoshuoQuery = { short_name: "yujx" };
+                    (function () {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript'; ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0]
+                         || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- 多说公共JS代码 end -->
+                </div>
+</article>
+            @Html.Partial("Right");
+            <script src="/blog/js/silder.js"></script>
+            <div class="clear"></div>
+        <script src="~/blog/js/baidutuisong.js"></script>
+</div>
+</body>
+
+</html>

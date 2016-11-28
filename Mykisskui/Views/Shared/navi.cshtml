@@ -1,0 +1,26 @@
+﻿
+<section>
+    <dl class="gactiondl">
+        @{
+            
+            try
+            {
+                Mykisskui.yujingxueEntities db = new Mykisskui.yujingxueEntities();
+
+                IEnumerable<Mykisskui.Navi> navi = db.Navi;
+                
+                foreach (var item in navi)
+                { 
+                    <dt class="gaction">
+                        @item.Name
+                    </dt>
+                }
+
+            }
+            catch(Exception e) { 
+                
+            }
+        }
+    </dl>
+      
+</section>

@@ -1,0 +1,152 @@
+﻿@{
+    
+    Layout = string.Empty;
+}
+
+<html>
+<head>
+    <meta  charset="utf-8"/>
+    <link href="/css/header.css" rel="stylesheet" type="text/css" />
+    <link href="/css/index.css" rel="stylesheet" type="text/css" />
+    <meta property="qc:admins" content="0336271737615206727" />
+    <meta name="baidu-site-verification" content="ep2jDwXEOv" />
+    <link href="~/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/audio/style.css" rel="stylesheet" />
+    <script src="/audio/jquery-1.7.2.min.js"></script>
+    <title>index</title>
+   
+
+</head>
+
+<body>
+        <div class="body">
+                    
+
+            <!-- 顶部导航start-->
+            <div class="top_navi">
+                <ul id="top_navi_ul">
+                    <li>
+                        <a href="#">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">文章</a>
+                    </li>
+                    <li>
+                        <a href="#">图集</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 顶部导航end-->
+     
+            <!--主内容区域start-->
+            <div class="list">
+                <!-- banner start -->
+                @*<div class="index_banner">
+
+                </div>*@
+                <!-- banner end -->
+                <ul id="indexListul">
+                   
+                </ul>
+            </div>
+            <!--主内容区域end-->
+            <div class="right_content">
+
+                @*<div class="right_login">
+                        <div>
+                            <input type="text" placeholder="请输入账号" />
+                        </div>
+                        <div>
+                            <input type="password" placeholder="请输入密码" />
+                        </div>
+                        <div>
+                            <div>登录</div>
+                            <div>注册</div>
+                        </div>
+                </div>*@
+                <div class="search">
+                    <div>
+                        <input type="text" value="" />
+                    </div>
+                    <div id="search">
+                        <div><i class=" icon-search icon-search-i-user"></i></div>
+                    </div>
+                </div>
+                <!--  播放器START -->
+              @*<div class="audio">
+                    <div class="audio_dis">
+                        正在播放 tag
+                    </div>
+                    <div class="kePublic">
+                        <div id="player">
+                            <div class="cover"></div>
+                            <div class="ctrl">
+                                <div class="tag">
+                                    <strong>Title</strong>
+                                    <span class="artist">Artist</span>
+                                    <span class="album">Album</span>
+                                </div>
+                                <div class="control">
+                                    <div class="left">
+                                        <div class="rewind icon"></div>
+                                        <div class="playback icon"></div>
+                                        <div class="fastforward icon"></div>
+                                    </div>
+                                    <div class="volume right">
+                                        <div class="mute icon left"></div>
+                                        <div class="slider left">
+                                            <div class="pace"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progress">
+                                    <div class="slider">
+                                        <div class="loaded"></div>
+                                        <div class="pace"></div>
+                                    </div>
+                                    <div class="timer left">0:00</div>
+                                    <div class="right">
+                                        <div class="repeat icon"></div>
+                                        <div class="shuffle icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul id="playlist"></ul>
+                        <script src="/audio/jquery-ui-1.8.17.custom.min.js"></script>
+                    </div>
+                </div>*@
+                <!-- 播放器END-->
+                <div class="self_shuqian">
+                    <div class="self_title">书签</div>
+                    <div>
+                        <ul id="bookmarkList_ul">
+                            <li>
+                               <i style="padding:50px 0;width:100%;text-align:center;margin:0;" class="icon-spinner icon-spin icon-2x pull-left"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="IndexPop">
+                         <div class="popIMG">
+                                    <div class="IMGclose"><i class="icon-remove IMGclose"></i></div>
+                                    <img src=""/>     
+                         </div>
+            </div>
+  
+    <script src="/js/template.js" type="text/javascript"></script>
+    <script src="/js/index.js" charset="utf-8" type="text/javascript"></script>
+    @*<script src="/audio/audio.js" type="text/javascript"></script>*@
+
+    <script>
+        var result = '@Html.Raw(HttpUtility.HtmlDecode(ViewBag.result))';
+        var naviData = '@Html.Raw(HttpUtility.HtmlDecode(ViewBag.navi))';
+        IndexMain.naviList(naviData, document.getElementById('top_navi_ul'));
+        IndexMain.list(result, document.getElementsByClassName('list').item(0).getElementsByTagName('ul')[0]);
+    </script>
+</body>
+        
+</html>

@@ -1,0 +1,70 @@
+﻿@{
+    Layout = string.Empty;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>不知名</title>
+    <meta name="keywords" content="个人博客,不知名,yujx" />
+    <meta name="description" content="如影随形主题的个人博客模板，神秘、俏皮。" />
+    <link href="/blog/css/base.css" rel="stylesheet">
+    <link href="/blog/css/index.css" rel="stylesheet">
+    <link href="/blog/css/media.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="baidu_union_verify" content="af07ea4fb65e33ffc012d00826d0509a">
+    <!--[if lt IE 9]>
+    <script src="/blog/js/modernizr.js"></script>
+    <![endif]-->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?ed0bb05f20f4f1a80bfbae291a7639ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+
+    <div class="ibody">
+      @Html.Partial("Menu");
+        <article>
+            <div class="banner">
+                <ul class="texts">
+                    <p>The best life is use of willing attitude, a happy-go-lucky life. </p>
+                    <p>最好的生活是用心甘情愿的态度，过随遇而安的生活.</p>
+                </ul>
+            </div>
+            <div class="bloglist">
+                <h2>
+                    <p><span>推荐</span>文章</p>
+                </h2>
+                @{
+                      foreach(Mykisskui.article item in ViewBag.data)
+                      {
+                          string type = Mykisskui.Models.Configs.TypeToString(Int32.Parse(item.type.ToString()));
+                          string image = item.key.Trim() == string.Empty ? "/blog/images/mi.png" : item.key;
+                                <div class="blogs">
+                                    <h3><a href="/Blog/New/@item.Id" target="_blank">@item.Title</a></h3>
+                                    <figure><img src="@image"></figure>
+                                    <ul>
+                                        <p>@Html.Raw(HttpUtility.HtmlEncode(item.Text))</p>
+                                        <a href="/Blog/New/@item.Id" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+                                    </ul>
+                                    <p class="autor"><span>作者：@item.author</span><span>分类：【<a href="/">@type</a>】</span><span>浏览（<a href="/">@item.read</a>）</span><span>评论（<a href="/">@item.tread</a>）</span></p>
+                                    <div class="dateview">@item.Time.Value.ToString("yyyy-MM-dd")</div>
+                                </div>
+                     }
+                }
+            </div>
+        </article>
+        @Html.Partial("Right");
+        <script src="/blog/js/silder.js"></script>
+        <div class="clear"></div>
+        <script src="~/blog/js/baidutuisong.js"></script>
+    </div>
+</body>
+</html>

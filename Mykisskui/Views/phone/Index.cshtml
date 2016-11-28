@@ -1,0 +1,72 @@
+﻿@{
+    Layout = string.Empty;
+}
+<html>
+        <head>
+            <title>yujx</title>
+            <meta name="viewport" content=" initial-scale=1.0,user-scalable=no" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+            <link rel="apple-touch-icon" href="/images/logo.png" />
+            <link href="/css/mobile.css" rel="stylesheet" />
+            <script src="~/js/iscroll.js" type="text/javascript"></script>
+            <link href="~/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+
+            <script>
+                var myscroll,detailscroll;
+                function loaded() {
+                    setTimeout(function () {
+                        wrapper.style.height = (window.innerHeight - MenuTop.clientHeight  -1 ) + 'px';
+                        myscroll = new iScroll("wrapper", { hScroll: false, vScroll: true, vScrollbar: false });
+                        wrapper1.style.height = (window.innerHeight - 40) + 'px';
+                        detailscroll = new iScroll("wrapper1", {
+                            hScroll: false, vScroll: true, lockDirection: true, vScrollbar: false
+                        });
+                    }, 100);
+                }
+                window.addEventListener("load", loaded, false);
+            </script>
+        </head>
+<body>
+    <div class="body">
+        <div class="classTop" id="MenuTop">
+            <ul></ul>
+        </div>
+        <div id="wrapper">
+                <div class="table">
+
+                </div>
+        </div>
+    </div>
+    <!--  模块模版1 start-->
+            <div class="detail" id="detail">
+                <div id="wrapper1">
+                    <div class="detailDIV">
+                    
+                    </div>
+                </div>
+                <div class="detailback" >
+                     返回
+                </div>
+            </div>
+    <!-- 模块模版1 end-->
+   <!-- 模块模版2 start  -->
+    <div class="floatdiv" id="floatparent"></div>
+    <div class="floatsub" id="floatsub">
+        <div>刷新</div>
+        <div>刷新</div>
+        <div>刷新</div>
+        <div>刷新</div>
+    </div>
+    <!-- 模块模版2 end -->
+
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="/js/phone.js" type="text/javascript"></script>
+    <script src="~/js/template.js"></script>
+    <script>
+        var data = '@Html.Raw(HttpUtility.HtmlDecode(ViewBag.result))';
+        var navi = '@Html.Raw(HttpUtility.HtmlDecode(ViewBag.navi))';
+    </script>
+</body>
+</html>

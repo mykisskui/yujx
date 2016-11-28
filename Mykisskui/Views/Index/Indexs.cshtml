@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "";
+    Mykisskui.Models.Index index = new Mykisskui.Models.Index();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>不知名</title>
+    <link href="/css/Indexs.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <ul>
+            @foreach(var item in index.navi())
+            { 
+            <li>
+                <a href="javascript:alert('别点了');">
+                    @item.Name
+                </a>
+            </li>
+            }
+        </ul>
+    </div>
+
+    @foreach(var item in index.acticle())
+    { 
+        
+      <div class="Content">
+          <a class="contenthref" href="/Index/YJX/@item.Id">
+              <div class="title">
+                  @item.Title
+                 
+              </div>
+                <div class="title">
+                        <span>@item.Time</span>
+                        @for (var i = 0; i < item.key.Split('|').Length - 1;i++ )
+                        { 
+                        <span>[@item.key.Split('|')[i]] </span>
+                        }
+                </div>
+              <div class="actContent">
+                @(Html.Raw(HttpUtility.HtmlEncode((item.Text.Length > 200 ? @item.Text.Substring(0,350) : @item.Text))))
+              </div>
+          </a>
+      </div>
+    }
+   
+</body>
+</html>

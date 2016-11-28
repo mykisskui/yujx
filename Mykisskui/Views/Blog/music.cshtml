@@ -1,0 +1,280 @@
+﻿@{
+    Layout = string.Empty;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>不知名</title>
+    <meta name="keywords" content="个人博客,不知名,yujx" />
+    <meta name="description" content="如影随形主题的个人博客模板，神秘、俏皮。" />
+    <link href="/blog/css/base.css" rel="stylesheet">
+    <link href="/blog/css/index.css" rel="stylesheet">
+    <link href="/blog/css/media.css" rel="stylesheet">
+    <link href="~/blog/css/music.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="/blog/js/modernizr.js"></script>
+    <![endif]-->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?ed0bb05f20f4f1a80bfbae291a7639ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+    <div class="ibody">
+        @Html.Partial("Menu");
+
+        <article>
+            <div id="jblurbackground">
+                    <canvas id="canvas" class="ui_canvas"></canvas>
+                <canvas id="parentcanvas" class="ui_canvas"></canvas>
+            </div>
+            <div class="music_body">
+                <!-- 表头 start -->
+                <div class="music_item_body" id="music_item_body">
+                    <div>歌曲(10)</div>
+                    <div>演唱者</div>
+                    <div>专辑</div>
+                </div>
+                <!-- 表头 end -->
+                <!-- 列表start-->
+                <div class="music_list_body" id="music_list_body">
+                    <div class="music_list_div">
+                        <div class="music_sort">
+                            <em>1</em>
+                        </div>
+                        <div> <!-- 详细列表 -->
+                            <div class="music_name">
+                                歌曲名字
+                            </div>
+                            <div class="music_aut">
+                                歌曲演唱者
+                            </div>
+                            <div class="music_zj">
+                                专辑
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--列表end-->
+            </div>
+            <!-- 播放器start-->
+                <div class="music_pla">
+                    <!-- 播放部分 -->
+                        <div>
+                            <div class="music_pla_div">
+                                <div class="music_pla_name">NULL</div>
+                                <div class="music_pla_obj">
+                                    <div id="music_pTime">0.00</div>
+                                    <div class="music_bar">
+                                        <div></div>
+                                        <div id="music_duration"></div>
+                                    </div>
+                                    <div id="music_dTime">03.55</div>
+                                </div>
+                            </div>
+                            <!--控制-->
+                            <div class="music_config">
+                                <a id="music_up"></a>
+                                <a id="music_stop" class="music_pause"></a>
+                                <a id="music_down"></a>
+                            </div>
+                            <!--控制-->
+                        </div>
+                    <!-- 播放部分 -->
+                </div>
+            <!-- 播放器end-->
+            </article>
+            @Html.Partial("Right")
+            <script src="/blog/js/silder.js"></script>
+            <div class="clear"></div>
+        <script src="~/blog/js/stackblur.js"></script>
+        <script src="~/blog/js/baidutuisong.js"></script>
+</div>
+    <script>
+        var dom = document, music_bar, audio, music_list_div, bvalue = 1, canvas_1_back
+        , canvas, cxt, cxt1, img, img1, canvasparent;
+        var musicjson = '[{"name":"再次见到你","URL":"/audio/%e5%86%8d%e6%ac%a1%e8%a7%81%e5%88%b0%e4%bd%a0-%e9%87%91%e5%a8%9c%e8%8b%b1.mp3","author":"无","image":"http://img.xiami.net/images/album/img55/23555/21003936901476323849_2.jpg"},{"name":"这份爱","URL":"/audio/%e8%bf%99%e4%bb%bd%e7%88%b1-DAViCHi.mp3","author":"无","image":"http://img.xiami.net/images/album/img72/2100021172/21003841681472452381_2.jpg"}]';
+            music_bar = dom.getElementsByClassName('music_bar').item(0);
+            music_bar.style.width = dom.getElementsByClassName('music_pla_obj').item(0).clientWidth - 80 + 'px';
+            window.onresize = function () {
+                 music_bar.style.width = dom.getElementsByClassName('music_pla_obj').item(0).clientWidth - 80 + 'px';
+            }
+            window.onload = function () {
+                audios.init();
+                music_up.addEventListener('click', audios.musicUp, false);
+                music_down.addEventListener('click', audios.musicDown, false);
+                music_stop.addEventListener('click', audios.musicStop, false);
+                music_list_body.addEventListener('dblclick', audios.musicSelect, false);
+            }
+            var audios = {
+                musicListLen: 0,
+                music_list_body:dom.getElementById('music_list_body'),
+                audio: dom.createElement('audio'), //dom.createElement('audio'),//音频标签
+                musicName: dom.getElementsByClassName('music_pla_name').item(0),//歌曲名称
+                music_pTime: dom.getElementById('music_pTime'),//time
+                music_dTime: dom.getElementById('music_dTime'),//time
+                music_duration:dom.getElementById('music_duration'),
+                jsonParse:JSON.parse(musicjson),//json
+                init: function () {//初始化
+                    audios.HTML();
+                    audios.start();
+                },
+                start: function (a) {//播放
+                    //audios.audio.autoplay = true;
+                    audios.musicListLen = Number(a) > 0 ? (a - 1) : audios.musicListLen;
+                    audios.audio.src = audios.jsonParse[audios.musicListLen].URL;
+                    audios.musicName.innerText = audios.jsonParse[audios.musicListLen].name;
+                    if (audios.audio.paused) {
+                        audios.audio.play();
+                        setInterval(audios.updateP, 500);
+                    } else {
+                        audios.audio.pause();
+                        clearInterval(audios.updateP);
+                    }
+                    //지금 선택한 응악 표시 
+                    music_list_div = dom.getElementsByClassName('music_list_div');
+                    for (var i = 0; i < music_list_div.length; i++) {
+                        if (Number(music_list_div[i].getAttribute('data-id')) - 1 == audios.musicListLen) {
+                            music_list_div[i].style.background = '#ececec';
+                        } else {
+                            music_list_div[i].style.background = '';
+                        }
+                    }
+
+                    audios.replace_background();
+                },
+                replace_background: function () {//更换背景图片
+                    //canvas //parentcanvas
+                    
+                    var art = dom.getElementsByTagName('article')[0];
+                    if (Number(bvalue) % 2) {
+                        canvas = dom.getElementById('canvas');
+                        canvas.width = art.clientWidth, canvas.height = art.clientHeight;
+                        canvas.className = canvas.className + ' ui_canvasMain';
+                        parentcanvas.className = parentcanvas.className.replace('ui_canvasMain', '').trim();
+                        img = new Image();
+                        img.src = audios.jsonParse[audios.musicListLen].image;
+                        cxt = canvas.getContext('2d');
+                        img.onload = function () {
+                            cxt.drawImage(img, 0, 0, art.clientWidth, art.clientHeight);
+                        }
+                        canvas.style.cssText = '-webkit-filter:blur(10px);';
+                        canvas_1_back = audios.jsonParse[audios.musicListLen].image;
+                    } else
+                    {
+                        canvasparent = dom.getElementById('parentcanvas');
+                        canvasparent.width = art.clientWidth, canvasparent.height = art.clientHeight;
+                        canvas.className = canvas.className.replace('ui_canvasMain', '').trim();
+                        parentcanvas.className = parentcanvas.className + ' ui_canvasMain';
+                        img1 = new Image();
+                        img1.src = audios.jsonParse[audios.musicListLen].image;
+                        cxt1 = parentcanvas.getContext('2d');
+                        img1.onload = function () {
+                            cxt1.drawImage(img1, 0, 0, art.clientWidth, art.clientHeight);
+                        }
+
+                        parentcanvas.style.cssText = '-webkit-filter:blur(10px);';
+                        canvas_1_back = audios.jsonParse[audios.musicListLen].image;
+
+
+
+                    }
+                        bvalue += 1;
+
+
+                },///////////////
+                musicSelect: function (e) {
+                    var _target = e.target, _b = true;
+                    while (_b) {
+                        if (_target.className == 'music_list_div') {
+                            _b = false;
+                        } else {
+                            _target = _target.parentNode;
+                        }
+                    }
+                    audios.audio.currentTime = 0;
+                    audios.musicListLen = Number(_target.getAttribute('data-id')) - 1;
+                    audios.start();
+                },
+                HTML: function () {
+                    var html = '';
+                    
+                    audios.jsonParse.forEach(function (a, b, c) {
+                        b = b + 1;
+                        html += '<div class="music_list_div" data-id="'+b+'">'+
+                        '<div class="music_sort">' +
+                        '<em>' + b + '</em>' +
+                        '</div>' +
+                        '<div>' +
+                        '<div class="music_name">' + a.name + '</div>' +
+                        '<div class="music_aut">' + a.author + '</div>' +
+                        '<div class="music_zj">专辑</div>' +
+                        '</div>' +
+                     '</div>'
+                    });
+                    audios.music_list_body.innerHTML = html;
+                },
+                updateP: function () {//更新进度
+                    var value = audios.audio.currentTime;
+                    var currentsec = parseInt(value % 60) < 10 ? '0' + parseInt(value % 60 ) : parseInt(value % 60);
+                    audios.music_pTime.innerText = parseInt(value / 60) + ':' + currentsec;
+                    var ratio = value / audios.audio.duration * 100;
+                    audios.music_duration.style.width = ratio + '%';
+                    audios.music_dTime.innerText = parseInt(audios.audio.duration / 60) +':'+ parseInt(audios.audio.duration % 60);
+
+                },
+                musicUp: function () {
+                    audios.audio.currentTime = 0;
+                    if (audios.musicListLen <= 0) {
+                        console.log(audios.jsonParse.length);
+                        audios.musicListLen = audios.jsonParse.length - 1;
+                    } else {
+                        audios.musicListLen -= 1;
+                    }
+                    audios.start();
+
+
+                },
+                musicStop: function (e) {
+                    var _target = e.target,_result;
+                    if (_target.className == 'music_play') {
+                        audios.audio.play();
+                        _result = 'music_puase';
+                    } else {
+                        audios.audio.pause();
+                        _result = 'music_play';
+                    }
+                    _target.className = _result;
+                },
+                musicDown: function () {
+                    audios.audio.currentTime = 0;
+                    if (audios.musicListLen >= audios.jsonParse.length - 1) {
+                        audios.musicListLen = 0;
+                    } else {
+                        audios.musicListLen += 1;
+                    }
+                    audios.start();
+                }
+            }
+            audios.audio.onended = function () {
+                console.log(audios.audio.currentTime);
+                audios.audio.currentTime = 0;
+                audios.musicListLen += 1;
+                if (audios.musicListLen >= audios.jsonParse.length) {
+                    audios.musicListLen = 0;
+                }
+                audios.start();
+            }
+          
+
+    </script>
+</body>
+</html>

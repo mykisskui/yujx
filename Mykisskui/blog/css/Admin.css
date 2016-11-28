@@ -1,0 +1,104 @@
+﻿body {
+    margin:0 50px;
+    overflow:hidden;
+    /*background-image:url('/blog/images/bg.jpg');*/
+    background-size:100% 100%;
+
+        /*-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 0, 0, 0.3);
+           box-shadow: 0 0 0 rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 0, 0, 0.3);*/
+           font-family: "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";
+}
+
+    /*background: none repeat scroll 0 0 rgba(0, 0, 0, 0.1);*/
+
+.Admin_Topcolumn {
+    height:44px;
+    background:#000;
+}
+    .Admin_Topcolumn > ul {
+        list-style:none;
+        margin:0;
+        padding:0;
+        height:44px;
+        display:-webkit-box;
+        display:flexbox;
+        display:box;
+    }
+        .Admin_Topcolumn > ul > li {
+            -webkit-box-flex:1;
+            flex:1;
+        }
+            .Admin_Topcolumn > ul > li:first-child {
+                width:15%;
+            }
+            .Admin_Topcolumn > ul > li:nth-child(2) {
+                width:75%;
+                line-height:44px;
+            }
+            .Admin_Topcolumn > ul > li:last-child {
+                width:30%;
+                line-height:44px;
+                text-align:center;
+            }
+                .Admin_Topcolumn > ul > li:last-child > a {
+                    color:#fff;
+                    text-decoration:none;
+                    display:inline-block;
+                    width:30%;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                    overflow:hidden;
+                    font-size:14px;
+                }
+.Admin_FunctionBar {
+
+}
+.logo {
+    height: 44px; 
+    line-height: 44px;
+    text-align:center;
+    font-weight: 800;
+    font-size: 16px;
+}
+.logo > a {
+    text-decoration:none;
+    color: #fff;
+    cursor:pointer;
+}
+/*内容*/
+.Admin_Menu {
+    position:absolute;
+    width:250px;
+}
+.Admin_MenuList > ul {
+    list-style:none;
+    margin:0;
+    padding:5px 5px 5px 0;
+}
+    .Admin_MenuList > ul > li:first-child {
+        font-weight:bold;
+        padding:5px 2px 8px 10px;
+        background:#000;
+        color:#fff;
+    }
+    .Admin_MenuList > ul > li {
+        background:#fff;
+    
+        font-weight:400;
+        border-bottom:1px solid #dadada;
+    }
+        .Admin_MenuList > ul > li > a {
+            display:block;
+            color:#000;
+                padding:5px 2px 10px 15px;
+                text-decoration:none;
+                cursor:pointer;
+                font-size:14px;
+        }
+
+.Admin_form {
+    margin-left:250px;
+    width:auto;
+    overflow:hidden;
+    padding:5px 0 0 0;
+}

@@ -1,0 +1,132 @@
+﻿@{
+    System.Collections.Generic.Dictionary<string,IEnumerable<Mykisskui.article>> dic = new Dictionary<string,IEnumerable<Mykisskui.article>>();
+    dic = Mykisskui.Models.Configs.articleRightListData();
+}
+<style>
+    body {
+        top: 0px !important;
+    }
+
+    .skiptranslate {
+        display: none !important;
+    }
+
+    #google_translate_element > .skiptranslate {
+        display: block !important;
+        width: 125px;
+    }
+
+    .skiptranslate goog-te-gadget {
+        display: block !important;
+    }
+
+    .goog-te-combo {
+        width: 120px;
+        height: 30px;
+        padding: 0 20px;
+        margin: 10px 0px !important;
+    }
+
+    .goog-te-gadget {
+        margin: 0 auto !important;
+    }
+
+    .goog-logo-link > img {
+        display: initial;
+    }
+</style>
+<aside>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'zh-CN', includedLanguages: 'ko,zh-CN', autoDisplay: false }, 'google_translate_element');
+        }
+        window.onload = function () {
+            //skiptranslate
+            var div = document.getElementsByTagName('div');
+            for (var i = 0; i < div.length; i++) {
+                if (div[i].className == 'skiptranslate') {
+                    div[i].remove();
+                }
+            }
+
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div data-value=""></div>
+    @*<div class="avatar"><a href="javascript:void(0);"><span>yu</span></a></div>*@
+    <div class="about_c">
+        <p>学</p>
+        <p>职业：Web前端工程师</p>
+        <p>籍贯：地球</p>
+        <p>电话：010-2655-7362</p>
+        <p>邮箱：mykisskui@gmail.com</p>
+    </div>
+    @*<div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>*@
+    <div class="tj_news">
+        <h2>
+            <p class="tj_t1">最新文章</p>
+        </h2>
+        <ul>
+            @{
+                foreach(Mykisskui.article item in dic["New"]){
+                    <li><a href="/Blog/New/@item.Id">@item.Title</a></li>
+                }
+             }
+            }
+            @*<li><a href="/">犯错了怎么办？</a></li>
+            <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
+            <li><a href="/">春暖花开-走走停停-发现美</a></li>
+            <li><a href="/">琰智国际-Nativ for Life官方网站</a></li>
+            <li><a href="/">个人博客模板（2014草根寻梦）</a></li>
+            <li><a href="/">简单手工纸玫瑰</a></li>
+            <li><a href="/">响应式个人博客模板（蓝色清新）</a></li>
+            <li><a href="/">蓝色政府（卫生计划生育局）网站</a></li>*@
+        </ul>
+        <h2>
+            <p class="tj_t2">推荐文章</p>
+        </h2>
+        <ul>
+            @{
+                foreach(Mykisskui.article item in dic["Top"]){
+                      <li><a href="/Blog/New/@item.Id">@item.Title</a></li>
+                }   
+                
+             }
+            @*<li><a href="/">犯错了怎么办？</a></li>
+            <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
+            <li><a href="/">春暖花开-走走停停-发现美</a></li>
+            <li><a href="/">琰智国际-Nativ for Life官方网站</a></li>
+            <li><a href="/">个人博客模板（2014草根寻梦）</a></li>
+            <li><a href="/">简单手工纸玫瑰</a></li>
+            <li><a href="/">响应式个人博客模板（蓝色清新）</a></li>
+            <li><a href="/">蓝色政府（卫生计划生育局）网站</a></li>*@
+        </ul>
+        <h2>
+            <p style="background: #398bfb;">常用工具</p>
+        </h2>
+        <ul>
+            <li><a title="在线工具 - 程序员的工具箱" href="http://tool.lu/" target="_blank">在线工具</a></li>
+            <li><a title="Font Awesome, 为 Bootstrap 而创造的图标字体" href="http://www.bootcss.com/p/font-awesome/" target="_blank">Font Awesome, 为 Bootstrap 而创造的图标字体</a></li>
+            <li><a title="UrlEncode编码/解码" href="http://tool.chinaz.com/Tools/URLEncode.aspx" target="_blank">UrlEncode编码/解码</a></li>
+            <li><a title="Google 翻译" href="http://translate.google.cn/" target="_blank">Google 翻译</a></li>
+            <li><a title="CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台" href="http://www.csdn.net/" target="_blank">CSDN.NET - 全球最大中文IT社区，为IT专业技术人员提供最全面的信息传播和服务平台</a></li>
+            <li><a title="开源中国 - 找到您想要的开源项目，分享和交流" href="http://my.oschina.net/" target="_blank">开源中国 - 找到您想要的开源项目，分享和交流</a></li>
+        </ul>
+    </div>
+    @*<div class="links">
+            <h2>
+                <p>友情链接</p>
+            </h2>
+            <ul>
+                <li><a href="/">杨青个人博客</a></li>
+                <li><a href="/">3DST技术社区</a></li>
+            </ul>
+        </div>*@
+    <div class="copyright">
+        <ul>
+            <p>鲁ICP备15012448号</p>
+            </p>
+        </ul>
+    </div>
+</aside>

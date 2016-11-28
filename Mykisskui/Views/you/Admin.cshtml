@@ -1,0 +1,75 @@
+﻿@{Layout = string.Empty;}
+
+
+<html>
+<head>
+        <title>管理</title>
+    <meta charset="utf-8" />
+    <style>
+        .ul {
+            list-style-type:none;
+        }
+            .ul > li {
+                margin:25px 0 0 0;
+            }
+            .ul > li > input {
+                line-height:30px;
+                width:500px;
+                border:none;
+                outline:none;
+                border-bottom:1px solid #000;
+            }
+        .admin_articleAdd {
+            width:600px;
+            float:left;
+        }
+        .articleAdd_p {
+            text-align: center;
+            font-weight: 800;
+            font-size: 20px;
+        }
+         .editor {
+            width: 500px;
+        }
+        .sub {
+            width:500px;
+            line-height:50px;
+            background-color:#b19090;
+            text-align:center;
+            color:#fff;
+            font-weight:800;
+        }
+    </style>
+</head>
+<body>
+            
+    <div  class="admin_articleAdd">
+        <p class="articleAdd_p">添加数据</p>
+        <ul class="ul">
+            <li>
+                <input  placeholder="填写标题" id="Title"/>
+            </li>
+            <li><input placeholder="填写作者" id="author" /></li>
+            <li><input placeholder="填写标签" id="key" /></li>
+            <li>
+                <textarea id="editor" class="editor"></textarea>
+            </li>
+            <li>
+                <div class="sub" id="sub">提交</div>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" charset="utf-8" src="~/Scripts/ueditor/ueditor.config.js"></script>
+    <script src="~/Scripts/ueditor/ueditor.all.js"></script>
+    <script src="~/Scripts/ueditor/zh-cn.js"></script>
+    <script src="/Scripts/jquery-1.8.2.min.js"></script>
+    <script>
+       var ue =  new UE.getEditor('editor', { initialFrameHeight:200 });
+        
+        $('#sub').on('click', function () {
+            $.ajax({
+                url: '/you/Admin',                type: 'post',                data: { Title:Title.value,author:author.value,key:key.value,Text:ue.getContent() },                success: function (data) {
+                    alert(data);                }            })        });
+    </script>
+</body>
+</html>

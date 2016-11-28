@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="个人博客,不知名,yujx" />
+    <meta name="viewport" content="width=device-width" />
+    <title>不知名</title>
+    @*@Styles.Render("~/blog/css")*@
+    <link href="~/blog/css/base.css" rel="stylesheet">
+    <link href="~/blog/css/index.css" rel="stylesheet">
+    <link href="~/blog/css/media.css" rel="stylesheet">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?ed0bb05f20f4f1a80bfbae291a7639ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+
+    @RenderBody()
+  
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)*@
+</body>
+</html>

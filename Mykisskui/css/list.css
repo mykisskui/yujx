@@ -1,0 +1,110 @@
+.listuserlogin{
+		
+		min-height:800px;
+		width: 900px;
+		background-color: #fff;
+		margin: auto;
+		padding-top: 50px;
+	
+}
+.listuserlogintitle{
+		
+		border-bottom: 1px #CACACA solid;
+		width: 400px;
+
+		margin: auto;
+		
+	
+}
+.listuserlogintitle > div{
+			font-size:18px;
+			text-align: center;
+		
+    height: 46px;
+    color: #525252;
+}
+.listuserloginform{
+		
+		width:400px;
+		margin: auto;
+		padding-top: 30px;
+		
+	
+}
+.listuserloginname > input,.listuserloginpwd > input{
+	    width: 400px;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 36px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+	
+}
+.listuserloginsub > div{
+	width: 400px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #82C587;
+    text-align: center;
+    background-color: #7BC980;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+	
+}
+.listuserloginlog{
+		
+		margin: 10px 20px 0 ;
+		    text-align: center;
+    color: #b5b6b6;
+    margin-top: 12px;
+    margin-bottom: 50px;
+    font-size: 12px;
+   
+	
+}
+.listuserloginlog > label{
+	 cursor: pointer;
+	
+}
+.listbody{
+		
+	/*height: 800px;*/
+	min-height: 800px;
+	width: 900px;
+	background-color: #fff;
+	display: none;
+	margin:auto;
+	
+}
+.listtop{
+		width: 900px;
+		margin: auto;
+		border-top: 10px solid #EFEFEF;
+}
+.listcontent{
+		padding: 15px 10px 0;
+		
+	
+}
+.listdate{
+		margin:0px 0 0 10px;
+		line-height: 25px;
+    font-size: 18px;
+	
+}
+.listtitle{   
+	 line-height: 40px;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑","宋体",Tahoma,Arial,Helvetica,STHeiti;
+}
+.listtext{
+	    margin: 5px 0 0 5px;
+    font-size: 16px;
+    font-family: arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑","宋体",Tahoma,Arial,Helvetica,STHeiti;
+    color: #505050;
+    min-height: 63px;
+	
+}

@@ -1,0 +1,66 @@
+﻿@{
+
+    Layout = "";
+    Mykisskui.Controllers.ConfigController config = new Mykisskui.Controllers.ConfigController();
+  
+    
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="/css/index.css" rel="stylesheet" />
+    <title>@config.Title().Value</title>
+    <link rel="shortcut icon" href="@config.Title().Image" />
+</head>
+<body>
+    <header>
+        <h1 class="title">@config.Title().Value</h1>
+    </header>
+  @*导航分布视图*@
+    @Html.Partial("navi")
+        <section class="articleSection">
+            @{
+                  Mykisskui.Models.Index index = new Mykisskui.Models.Index();
+                
+            }
+        @foreach(var item in index.acticle())
+        {
+            item.Text = item.Text.Length > 150 ? item.Text.Substring(0, 150) : item.Text;
+            
+        <dl class="article">
+            <dt>
+                <p class="caption">@item.Title </p>
+            </dt>
+            <dt>
+                <p class="Content">
+                      @item.Text
+                </p>
+            </dt>
+        </dl>
+        }
+    </section>
+    <section class="SectionInfo">
+        <dl class="UserInfo">
+            <dt>
+
+            </dt>
+        </dl>
+        <dl class="UserInfo">
+            <dt>
+
+            </dt>
+        </dl>
+        <dl class="UserInfo">
+            <dt>
+
+            </dt>
+        </dl>
+        <dl class="UserInfo">
+            <dt>
+
+            </dt>
+        </dl>
+    </section>
+</body>
+</html>

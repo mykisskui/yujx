@@ -1,0 +1,48 @@
+﻿@{
+    Layout = string.Empty;
+}
+<html>
+<head>
+    <title>导航列表</title>
+    <link href="/blog/css/AdminArticle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="ArticleList">
+        <div class="ArticleListData">
+            <table>
+                <tr>
+                    <td>编号</td>
+                    <td>名称</td>
+                    <td>URL</td>
+                    <td>key</td>
+                    <td>显示</td>
+                    <td>操作</td>
+                </tr>
+
+               @foreach(Mykisskui.Navi item in ViewBag.data){
+                    
+                 <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.URL</td>
+                    <td>@item.key</td>
+                    <td>
+                        <a class="Enable" data-status="@item.Enable" data-aim="enable" data-type='navi' data-id="@item.Id" href="javascript:void(0);">@*@(item.Enable == true ? "显示" : "隐藏")*@</a>
+                    </td>
+                    <td>
+                        <a href="/Admin/NaviAdd/@item.Id" data-status="remove" data-aim="remove" data-type='navi' data-id="@item.Id">编辑</a>
+                        <a href="javascript:void(0);" data-status="remove" data-aim="remove" data-type='navi' data-id="@item.Id">删除</a>
+                    </td>
+                 </tr>
+                   
+               }
+            </table>
+
+        </div>
+    </div>
+
+
+    <script src="~/js/jquery-1.8.2.min.js"></script>
+    <script src="/blog/js/base.js" type="text/javascript"></script>
+</body>
+</html>

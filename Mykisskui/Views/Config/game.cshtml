@@ -1,0 +1,29 @@
+﻿@{
+    Layout = string.Empty;
+}
+<html>
+<head>
+
+    <title>game</title>
+    <style>
+        .container {
+            width:400px;height:600px;border:2px solid #000; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+
+    <script>
+
+        var keycom = { "38": "rotate(1)", "40": "down()", "37": "move(2,1)", "39": "move(0.5,-1)" };
+        document.onkeydown = function (e) {
+            console.log(event.keyCode);
+            eval(keycom[(e ? e : event).keyCode]);
+        
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+	.header{ /* 头 */
+			
+    /*background: #FFFFFF url(http://www.cnblogs.com/skins/Banlieue13/images/bg_left.gif) right top repeat-x;
+    padding-top: 40px;*/
+				background-color: #191e29;
+			    height:  46px;
+			}
+			.navi{
+					
+					list-style-type: none;
+					display: -webkit-box;
+					margin: 0;padding: 0;
+					
+			}
+			.navi > li{
+					
+					line-height:44px;
+					-webkit-box-flex: 1;
+					font-size:16px;
+					color:#FBFBFB;
+					font-weight: 800;
+					text-align: center;
+					/*border-right: 1px solid #868686;*/
+					border:1px solid #424242;
+					border-right: none;
+					cursor:default;
+			}
+			.navi > li:last-child{
+					/*border-right: none;*/
+					border-right: 1px solid #424242;
+			}
+			.navi > li:hover{
+				
+				background-color:#fff;
+				color: #000;
+				border-color: #fff;
+				
+			}

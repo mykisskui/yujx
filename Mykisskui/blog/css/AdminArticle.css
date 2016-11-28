@@ -1,0 +1,189 @@
+﻿body {
+    margin:0;
+    padding:0;
+       font-family: microsoft yahei;
+}
+.ArticleListData > table {
+    border-collapse:collapse;
+    width:100%;
+    font-size:14px;
+}
+.ArticleListData > table > tbody > tr:first-child {
+        background:#000;
+        border-left:1px solid #b9b9b9;
+}
+.ArticleListData > table > tbody> tr:first-child > td {
+      border:1px solid #000;
+        color:#fff;
+        font-weight:bold;
+
+}
+    .ArticleListData > table > tbody > tr {
+        border-bottom:1px solid #000;
+          
+    }
+    .ArticleListData > table > tbody > tr > td {
+        padding:10px 15px 10px 5px;
+        text-align:center;
+        border-left:1px solid #b9b9b9;
+        font-size:14px;
+        font-family: microsoft yahei;
+        /**/
+            text-overflow:ellipsis;
+        overflow:hidden;
+        white-space:nowrap;
+        width:200px;
+        max-width:200px;
+        /**/
+    }
+         .ArticleListData > table > tbody > tr > td {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 200px;
+            max-width: 200px;
+            position:relative;
+        }
+
+            .ArticleListData > table > tbody > tr > td :last-child > a:first-child {
+                background:#000;
+                color:#fff;
+
+            }
+        .ArticleListData > table > tbody > tr > td:last-child {
+            border-right:1px solid #b9b9b9;
+        }
+                
+                .ArticleListData > table > tbody > tr > td:last-child > a {
+                border:1px solid #fff;
+                padding:5px 10px;
+                text-decoration:none;
+                font-size:12px;
+                font-weight:bold;
+                position:relative;
+        }
+                    .ArticleListData > table > tbody > tr > td:last-child > a:first-child {
+                        color:#fff;
+                        background:#000;
+                    }
+                    .ArticleListData > table > tbody > tr > td:last-child > a:last-child {
+                        background:red;
+                        color:#fff;
+                    }
+
+                    /*是否启用*/
+.Enable {
+    color:#fff;
+    font-size:12px!important;
+    text-decoration:none;
+    border:1px solid #fff;
+        position: relative;
+}
+    .Enable:after {
+    padding:5px 10px;
+    }
+    .Enable[data-status=True]:after {
+        background:#f00;
+        content:"显示";
+    }
+    .Enable[data-status=False]:after {
+        background:#000;
+        content:"隐藏";
+    }
+                    /*是否启用*/
+
+
+                    /*分页*/
+.Admin_page {
+    padding:10px;
+}
+    .Admin_page > ul {
+        list-style:none;
+        margin:0;
+        display:inline-block;
+        padding:0;
+    }
+        .Admin_page > ul > li {
+    background: #5a5a5a;
+    border-radius: 50%;
+    float: left;
+    padding: 5px;
+    margin:0 0 0 10px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+        }
+            .Admin_page > ul > li > a {
+                 text-decoration:none;
+                             color: #f1f1f1;
+                    display:block;
+                    cursor:pointer;
+            }
+                    /*分页*/
+
+
+
+
+                    /*articleadd start*/
+
+.articleAddbody {
+  padding:10px 20px 0 170px;
+}
+.articleAdddiv {
+
+}
+    .articleAdddiv > div {
+        display:inline-block;
+        padding:5px 0;
+
+    }
+        .articleAdddiv > div:first-child {
+            width:100px;
+            font-size:16px;
+            color:#313131;
+            font-weight:bold;
+            vertical-align:top;
+
+        }
+        .articleAdddiv > div:nth-child(2) > input{
+         width: 200px;
+    border: 1px solid #a7a7a7;
+    outline: none;
+    padding: 5px 10px;
+    color: #888;
+    font-family: microsoft yahei;
+    font-size: 14px;
+        }
+        .articleAdddiv > div:nth-child(2) > select {
+                width: 200px;
+                padding: 5px 5px;
+                color: #313131;
+                font-family: microsoft yahei;
+        }
+        .articleAdddiv  > aside {
+            font-size:14px;
+            color:#848484;
+            padding:5px 0 0 105px;
+        }
+#uploadImage {
+    display:block;
+    padding:0 0 0 105px;
+    max-width:148px;
+    max-height:148px;
+}
+input[type=submit] {
+        background: #000;
+    padding: 15px 0 15px 0;
+    color: #fff;
+    font-weight: bold;
+    width: 150px;
+    margin: 20px 0 0 105px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: microsoft yahei;
+}
+                    /*articleadd end*/

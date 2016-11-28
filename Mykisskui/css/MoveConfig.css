@@ -1,0 +1,49 @@
+﻿body {
+    padding:0;
+    margin:0;
+
+}
+.Main {
+    width:1280px;
+    height:700px;/*暂设高度*/
+    display:-webkit-box;
+    border:1px solid #808080;
+    margin:auto;
+}
+.Left,.center,.Right {
+    width:33%;
+    -webkit-box-flex:1;
+    height:100%;
+    overflow:auto;
+}
+.Left > ul {
+    list-style:none;
+    padding:0;
+    margin:10px 10px 0;
+    -webkit-user-select:none;/*禁止用户选中文本*/
+}
+    .Left > ul > li {
+        height:100px;
+        border:1px solid #808080;/*布局边框颜色*/
+       font-weight:bold;
+       text-align:center;
+       line-height:100px;
+    }
+        .Left > ul > li:hover {
+            cursor:move;
+        }
+      
+.center {
+    border-right:1px solid #808080;
+    border-left:1px solid #808080;
+        -webkit-user-select:none;/*禁止用户选中文本*/
+}
+
+
+/*这里是测试样式start*/
+
+.testdiv {
+    width:100%;height:100px;background-color:#eee;text-align:center;line-height:100px;border-bottom:1px solid #808080;
+}
+
+/*这里是测试样式end*/

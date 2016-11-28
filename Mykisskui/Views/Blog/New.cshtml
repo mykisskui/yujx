@@ -1,0 +1,101 @@
+﻿@{
+    Layout = string.Empty;
+    Mykisskui.article art = ViewBag.data;
+    string topURL = string.Format("{0}", Mykisskui.Models.Model.NewDetailsTopDown.top.Id == 0 ? "JavaScript:void(0);" : "/Blog/New/" + Mykisskui.Models.Model.NewDetailsTopDown.top.Id);
+    string downURL = string.Format("{0}", Mykisskui.Models.Model.NewDetailsTopDown.down.Id == 0 ? "JavaScript:void(0);" : "/Blog/New/" + Mykisskui.Models.Model.NewDetailsTopDown.down.Id);
+        
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@art.Title</title>
+    <meta name="keywords" content="个人博客,不知名,yujx" />
+    <meta name="description" content="@art.Title" />
+    <link href="/blog/css/base.css" rel="stylesheet">
+    <link href="/blog/css/style.css" rel="stylesheet">
+    <link href="/blog/css/media.css" rel="stylesheet">
+    <link href="/blog/css/index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+    <script src="~/Scripts/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+    <link href="~/Scripts/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+        SyntaxHighlighter.all();
+
+    </script>
+
+
+
+</head>
+<body>
+
+    <div class="ibody">
+            @Html.Partial("Menu");
+        <article>
+            <h2 class="about_h"></h2>
+            <div class="index_about">
+                <h2 class="c_titile">@art.Title</h2>
+                <p class="box_c"><span class="d_time">发布时间：@art.Time.Value.ToString("yyyy-MM-dd")</span><span>编辑：@art.author</span><span>浏览（@art.read）</span><span>评论览（@art.tread）</span></p>
+                <ul class="infos">
+                        @Html.Raw(art.Text)
+                </ul>
+                @*<div class="keybq">
+                    <p><span>关键字词</span>：黑色,个人博客,时间轴,响应式</p>
+                </div>*@
+                <div class="nextinfo">
+                    <p>上一篇：<a href="@topURL">@Mykisskui.Models.Model.NewDetailsTopDown.top.Title</a></p>
+                    <p>下一篇：<a href="@downURL ">@Mykisskui.Models.Model.NewDetailsTopDown.down.Title</a></p>
+                </div>
+                <div class="otherlink">
+                    <h2>相关文章</h2>
+                    <ul>
+                        无相关信息      
+                    </ul>
+                </div>
+
+                <div class="ds-share" data-thread-key="@art.Id" data-title="@art.Title" data-images="@art.key" data-content="@art.Text" data-url="http://www.yujx.org/blog/New/@(art.Id)">
+                    <div class="ds-share-inline">
+                        <ul class="ds-share-icons-16">
+
+                            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+                            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+                            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+                            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+                        </ul>
+                        <div class="ds-share-icons-more">
+                        </div>
+                    </div>
+                </div>
+                <!-- 多说评论框 start -->
+                <div class="ds-thread" data-thread-key="@art.Id" data-title="@art.Title" data-url="/blog/New/@art.Id"></div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                    var duoshuoQuery = { short_name: "yujx" };
+                    (function () {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript'; ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0]
+                         || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- 多说公共JS代码 end -->
+            </div>
+        </article>
+        @Html.Partial("Right");
+        <script src="/blog/js/silder.js"></script>
+        <div class="clear"></div>
+        <script src="~/blog/js/baidutuisong.js"></script>
+        <!-- 清除浮动 -->
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+﻿@{
+    Layout = string.Empty;
+}
+<!doctype html>
+<html>
+<head>
+    <title>不知名</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="个人博客,不知名,yujx" />
+    <meta name="description" content="文章,分享" />
+    <link href="/blog/css/index.css" rel="stylesheet" />
+    <link href="/blog/css/base.css" rel="stylesheet">
+    <link href="/blog/css/style.css" rel="stylesheet">
+    <link href="/blog/css/media.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+    <script src="~/Scripts/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+    <link href="~/Scripts/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+        SyntaxHighlighter.all();
+
+    </script>
+
+    <style>
+        a.readmore {
+            background: #fff;
+            padding: 0;
+            float: none;
+            margin: 0;
+            /* background: #e41635; */
+            color: #f55f77;
+            /* padding: 5px 10px; */
+            /* float: right; */
+            /* margin: 20px 0 0 0; */
+        }
+    </style>
+</head>
+<body>
+    <div class="ibody">
+        @Html.Partial("Menu");
+        <article>
+            <h2 class="about_h"></h2>
+            <div class="bloglist">
+
+
+                @{
+                    
+                    foreach (Mykisskui.article item in ViewBag.data)
+                    {
+                        string type = Mykisskui.Models.Configs.TypeToString(Int32.Parse(item.type.ToString()));
+                        <div class="newblog">
+                            <ul>
+                                <h3><a href="/Blog/New/@item.Id" target="_blank">@item.Title</a></h3>
+                                <div class="autor"><span>作者：@item.author</span><span>分类：[<a href="/">@type</a>]</span><span>浏览（<a href="/">@item.read</a>）</span><span>评论（<a href="/">@item.tread</a>）</span></div>
+                                <p style="word-wrap:break-word;">
+                                       @Html.Raw(item.Text)
+                                     <a href="/Blog/New/@item.Id" target="_blank" class="readmore">全文</a>
+                                </p>
+                            </ul>
+                            <figure>
+                                <img src="@item.key" />
+                            </figure>
+                            <div class="dateview">@item.Time.Value.ToString("yyyy-MM-dd")</div>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="page"><a title="Total record"><b>@Mykisskui.Models.Model.NewListPageModel.PageCount</b></a>
+                   @{
+                        int pageIndex = Mykisskui.Models.Model.NewListPageModel.PageIndex;
+                        int pagecount = Mykisskui.Models.Model.NewListPageModel.PageCount;
+                        int pageConfig = 5;
+                        int _count = (pageIndex - 1 + pageConfig) >= pagecount ? pagecount : pageIndex - 1 + pageConfig;
+                         if(pageIndex > 1){
+                                <a href="/blog/NewList/@((pageIndex - 5) <= 0 ? 1 : pageIndex - 5)"><<</a>
+                                <a href="/blog/NewList/@(pageIndex - 1)"><</a>
+                         }
+                         for (int i = (pageIndex <= 1 ? 1 : (pageIndex - 4) <= 0 ? 1 : pageIndex - 4); i <= _count; i++)
+                         {
+                             if (i == pageIndex){
+                                     <b>@i</b>
+                                   }else{
+                                     <a href="/blog/NewList/@i">@i</a>
+                                   }
+                       }if(pageIndex < pagecount){
+                                     <a href="/blog/NewList/@(pageIndex + 1)">></a>
+                                     <a href="/blog/NewList/@((pageIndex + 5) >= pagecount ? pagecount : pageIndex + 5)  ">>></a>
+                        }
+                    }
+                 
+            </div>
+        </article>
+
+        @Html.Partial("Right");
+        <script src="/blog/js/silder.js"></script>
+        <div class="clear"></div>
+        <script src="~/blog/js/baidutuisong.js"></script>
+        <!-- 清除浮动 -->
+    </div>
+</body>
+</html>

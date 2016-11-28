@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "";
+    Mykisskui.Models.Index index = new Mykisskui.Models.Index();
+    Mykisskui.Models.Index yjx = new Mykisskui.Models.Index();
+    int id = ViewBag.id;
+}
+
+<html>
+<head>
+        <title></title>
+    <link href="/css/Indexs.css" rel="stylesheet" />
+    <link href="~/css/yjx.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="header">
+        <ul>
+            @foreach (var item in index.navi())
+            {
+                <li>
+                    <a href="javascript:alert('别点了');">
+                        @item.Name
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="yjxsection">
+            <div class="yjxtitle">
+                    @yjx.actyjx(id.ToString()).Title
+            </div>
+        <div class="title">
+            
+            @for (var i = 0; i < @yjx.actyjx(id.ToString()).key.Split('|').Length - 1; i++)
+            {
+                <span>[@yjx.actyjx(id.ToString()).key.Split('|')[i]] </span>
+            }
+        </div>
+
+        <div class="yjxcontent">
+            @Html.Raw(HttpUtility.HtmlEncode(yjx.actyjx(id.ToString()).Text))
+        </div>
+    </div>
+</body>
+</html>

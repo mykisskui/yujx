@@ -1,0 +1,88 @@
+﻿@{
+    Layout = string.Empty;
+    Mykisskui.MyAdmin admin = Session["yujx"] as Mykisskui.MyAdmin;
+}
+<html>
+<head>
+    <title>后台</title>
+    <link href="/blog/css/Admin.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="Admin_Topcolumn">
+        <ul>
+            <li class="logo"><a href="http://www.yujx.org" target="_blank">www.yujx.org</a></li>
+            <li><!-- 保留 --></li>
+            <li>
+                <a href="javascript:void(0);">@(admin.Name)</a>
+                <a href="javascript:void(0);">@admin.UserName</a>
+                <a href="javascript:window.location = '/Admin/login';">退出</a> <!-- 先这样 -->
+            </li>
+        </ul>
+    </div>
+    <div class="Admin_body">
+        <div class="Admin_Menu">
+            <div class="Admin_MenuList">
+                <ul>
+                    <li>
+                        <span>文章管理</span>
+                    </li>
+                    <li>
+                        <a href="/Admin/articleList" target="iframe">文章列表</a>
+                    </li>
+                    <li>
+                        <a href="/Admin/articleAdd" target="iframe">文章添加</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="Admin_MenuList">
+                <ul>
+                    <li>
+                        <span>导航管理</span>
+                    </li>
+                    <li>
+                        <a href="/Admin/NaviList" target="iframe">导航列表</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="Admin_MenuList">
+                <ul>
+                    <li>
+                        <span>音乐管理</span>
+                    </li>
+                    <li>
+                        <a href="/Admin/MusicList">音乐列表</a>
+                    </li>
+                    <li>
+                        <a href="/Admin/MusicAdd">音乐添加</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="Admin_MenuList">
+                <ul>
+                    <li>
+                        <span>评论管理</span>
+                    </li>
+                    <li>
+                        <a href="#">评论列表</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="Admin_form">
+            <iframe id="iframe" name="iframe" src="/Admin/defaultAction"></iframe>
+        </div>
+    </div>
+    <script>
+   
+        var dom = document;
+        function AdminForm() {
+            var winheight = window.innerHeight;
+            var winwidth = window.innerWidth;
+            var AdminFormWidth = winwidth - 100 - 250;
+            var AdminFormHeight = winheight - 44 - 5;
+           dom.getElementById("iframe").style.cssText = "width:" + AdminFormWidth + "px;height:"+AdminFormHeight+"px;border:none;";
+        }
+        document.addEventListener("load", AdminForm());
+    </script>
+</body>
+</html>

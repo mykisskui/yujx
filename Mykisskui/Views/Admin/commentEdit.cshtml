@@ -1,0 +1,108 @@
+﻿@{
+    Layout = string.Empty;
+}
+<html>
+<head>
+    <title>文章添加</title>
+    <link href="/blog/css/AdminArticle.css" rel="stylesheet" />
+    <link href="~/uploadify/uploadify.css" rel="stylesheet" />
+    <script src="~/js/jquery-1.8.2.min.js"></script>
+    <script src="~/uploadify/jquery.uploadify.min.js"></script>
+</head>
+<body>
+    <div class="articleAddbody">
+        <form method="post">
+            <div class="articleAdddiv">
+                <div>标题</div>
+                <div>
+                    <input type="text" name="Title" value="" />
+                </div>
+                <aside>请输入标题</aside>
+            </div>
+            <div class="articleAdddiv">
+                <div>作者</div>
+                <div>
+                    <input type="text" name="author" value="" />
+                </div>
+                <aside>请输入作者</aside>
+            </div>
+            <div class="articleAdddiv">
+                <div>类型</div>
+                <div>
+                    <select name="Type">
+                        <option value="1">文章</option>
+                    </select>
+                </div>
+                <aside>请输入作者</aside>
+            </div>
+            <div class="articleAdddiv">
+                <div>浏览数</div>
+                <div>
+                    <input type="text" name="read" value="0" />
+                </div>
+            </div>
+            <div class="articleAdddiv">
+                <div>顶数量</div>
+                <div>
+                    <input type="text" name="Top" value="0" />
+                </div>
+            </div>
+            <div class="articleAdddiv">
+                <div>评论数</div>
+                <div>
+                    <input type="text" name="Tread" value="0" />
+                </div>
+            </div>
+            <div class="articleAdddiv">
+                <div>展示图片</div>
+                <div>
+                    <input type="text" id="upload" name="upload" value="" />
+                </div>
+                <img src="" id="uploadImage" />
+                <input type="hidden" value="" id="key" name="key" />
+                <aside>添加展示图片</aside>
+            </div>
+            <div class="articleAdddiv">
+                <div>内容</div>
+                <div>
+                    <textarea id="editor" name="Text" class="editor"></textarea>
+                </div>
+            </div>
+            <input type="submit" value="提交" />
+
+        </form>
+    </div>
+
+    <script type="text/javascript" charset="utf-8" src="~/Scripts/ueditor/ueditor.config.js"></script>
+    <script src="~/Scripts/ueditor/ueditor.all.js"></script>
+    <script src="~/Scripts/ueditor/zh-cn.js"></script>
+    <script type="text/javascript">
+        var ue = new UE.getEditor('editor', { initialFrameHeight: 200, initialFrameWidth: 700 });
+
+
+
+
+        $("#upload").uploadify({
+            'uploader': '/Admin/upload?filetype=pic',
+            'formData': {},
+            'type': "post",
+            'buttonText': '选择图片',
+            'auto': true,
+            'multi': true,
+            'font-weight': 400,
+            'width': 200,
+            'swf': "/uploadify/uploadify.swf",
+            'onUploadSuccess': function (e, response, data) {
+                var stringArray = response.split("|");
+                if (stringArray[0] == "1") {
+                    $("#uploadImage").attr('src', stringArray[1]);
+                    $("#key").val(stringArray[1]);
+                }
+                else {
+                    box.alert(stringArray[2]);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
