@@ -32,12 +32,12 @@ namespace Mykisskui.Controllers
         /// </summary>
         /// <returns></returns>
         public ActionResult Indexs()
-        {
+        {  
             return View();
-        }
-        /// <summary>
+        }  
+        /// <summary>  
         /// 列表展示
-        /// </summary>
+        /// </summary>   
         /// <returns></returns>
         public ActionResult YJX(string id)
         {
