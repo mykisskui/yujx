@@ -37,7 +37,7 @@ namespace Mykisskui.Controllers
         }
         /// <summary>
         /// 列表展示
-        /// </summary>
+        /// </summary>   
         /// <returns></returns>
         public ActionResult YJX(string id)
         {
