@@ -27,11 +27,11 @@ namespace Mykisskui.Controllers
             }
             return View();
         }
-        /// <summary>
+        /// <summary>  
         /// 个人
         /// </summary>
         /// <returns></returns>
-        public ActionResult Indexs()
+        public ActionResult Indexs()          
         {  
             return View();
         }  
