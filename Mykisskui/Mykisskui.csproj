@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -347,6 +348,7 @@
     <Content Include="blog\js\baidutuisong.js" />
     <Content Include="blog\js\base.js" />
     <Content Include="blog\js\modernizr.js" />
+    <Content Include="blog\js\navscroll.js" />
     <Content Include="blog\js\silder.js" />
     <Content Include="blog\js\stackblur.js" />
     <Content Include="css\details.css" />
