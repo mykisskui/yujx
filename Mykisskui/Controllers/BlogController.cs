@@ -22,7 +22,7 @@ namespace Mykisskui.Controllers
         }
         /// <summary>
         /// 新闻列表
-        /// 
+        ///    
         /// </summary>
         /// <returns></returns>
         public ActionResult NewList(int id = 1) {
