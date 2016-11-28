@@ -31,7 +31,7 @@ namespace Mykisskui.Controllers
         /// 个人
         /// </summary>
         /// <returns></returns>
-        public ActionResult Indexs()
+        public ActionResult Indexs()          
         {  
             return View();
         }  
