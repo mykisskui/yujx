@@ -12,7 +12,7 @@ a:hover { text-decoration: none; }
 .blank { height: 5px; overflow: hidden; width: 100%; margin: auto; clear: both }
 /* 头部信息 */
 .ibody { background: url(../images/bg.png) repeat-y; width: 1000px; margin: auto; box-shadow: -2px -1px 5px #666; }
-header { position: relative; }
+header { position: relative;background:#000;height:50px; }
 header h1 { padding: 15px 0 0 80px; font-size: 22px; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; }
 header h2 { margin: 20px 80px; color: #8e8d8d }
 /* logo */
