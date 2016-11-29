@@ -129,14 +129,14 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
     overflow:hidden;
 }
     .news > div {
-        margin:0 20px 20px 20px;
+        margin:0 auto 20px auto;
         overflow:hidden;
     }
-.news > div > div {
+.news > div > div  {
     float:left;
     font-family:arial, "Hiragino Sans GB", "Microsoft Yahei", Î¢ÈíÑÅºÚ, ËÎÌå, Tahoma, Arial, Helvetica, STHeiti;
 }
-    .news > div > div > div {
+    .news > div > div > div{
         position:relative;
         border:1px solid #fff;
         float:left;

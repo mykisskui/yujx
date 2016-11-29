@@ -30,13 +30,21 @@ newsObj.randomCol = function() {
     var g = Math.floor(Math.random() * 255);
     var b = Math.floor(Math.random() * 255);
     return  'rgb(' + r + ',' + g + ',' + b + ')';
-
 }
-newsObj.color = function() {
+newsObj.color = function () {
+    var news_div, news_div_width, news_clientwidth, _indexof
     for (var i = 0; i < news.length; i++) {
         a = newsObj.newsLayout(news.item(i),0,news.length);
     }
+    news = document.getElementsByClassName('news').item(0);
+      news_div = news.getElementsByTagName('div')[0];
+      news_div_width = news_div.getElementsByTagName('div')[0].clientWidth;
+      news_clientwidth = news.clientWidth / news_div_width;
+      _indexof = news_clientwidth.toString().indexOf('.');
+      news_div_width = _indexof > 0 ? (news_clientwidth.toString().substring(0, _indexof)) * news_div_width : (news_clientwidth * news_div_width);
+      news_div.style.cssText = 'width:' + news_div_width + 'px;';
 }
-
+window.onresize = function () {
+    newsObj.color();
+}
 newsObj.color();
-
