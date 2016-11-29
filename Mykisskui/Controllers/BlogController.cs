@@ -64,6 +64,13 @@ namespace Mykisskui.Controllers
 
             return View();
         }
+        /// <summary>
+        /// 图集-分布布局
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Atlas() {
+            return View();
+        }
         public ActionResult pg() {
             return View();
         }

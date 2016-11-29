@@ -123,3 +123,54 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 .links h2 p { background: #222 }
 .links ul { margin: 20px 0 }
 .links ul li { height: 30px; line-height: 30px; text-align: center; border-bottom: #333 1px dashed; margin: 0 40px; }
+/*新闻start*/
+.news{
+    width:100%;
+    overflow:hidden;
+}
+    .news > div {
+        margin:0 20px 20px 20px;
+        overflow:hidden;
+    }
+.news > div > div {
+    float:left;
+    font-family:arial, "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, 宋体, Tahoma, Arial, Helvetica, STHeiti;
+}
+    .news > div > div > div {
+        position:relative;
+        border:1px solid #fff;
+        float:left;
+        margin:2px;
+        padding:0 2px;
+    }
+.news_layout {
+    width:212px;
+    height:212px;
+}
+.news_layout_1 {
+    width:202px;
+    height:206px;
+    font-size:16px;
+
+}
+.news_layout_2 {
+    width:202px;
+    height:100px;
+    font-size:14px;
+}
+.news_layout_3 {
+    width:96px;
+    height:100px;
+    font-size:12px;
+}
+.news_layout > div > a {
+    position:absolute;
+    color:#fff;
+    text-decoration:none;
+   line-height:1.1;
+   padding:5px;
+   overflow:hidden;
+    
+}
+      
+/*新闻end*/
