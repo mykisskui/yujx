@@ -39,10 +39,16 @@ newsObj.News_ajax = function () {
     $.ajax({
         url: '/blog/baiduNews',
         type: 'get',
-        async:false,
+     //   async:false,
         success: function (data) {
-            console.log(data);
-            result = data;
+            newsObj.newsdata = JSON.parse(data);
+            var news_url_a = document.getElementsByClassName('news_url_a');
+            for (var i = 0; i < news_url_a.length; i++) {
+                news_url_a[i].href = 'http://news.baidu.com/ns?tn=news&word=' + newsObj.newsdata.data[i].query_word;
+                news_url_a[i].innerText = newsObj.newsdata.data[i].query_word;
+                news_url_a[i].target = '_blank';
+                news_url_a[i].style.cssText = 'top:' + ((news_url_a[i].parentNode.clientHeight - news_url_a[i].clientHeight) / 2) + 'px;';
+            }
         }
     })
     return result;
@@ -65,14 +71,7 @@ window.onresize = function () {
     newsObj.color();
 }
 window.onload = function () {
-    var result = newsObj.News_ajax();
-    newsObj.newsdata = JSON.parse(result);
-    var news_url_a = document.getElementsByClassName('news_url_a');
-    for (var i = 0; i < news_url_a.length; i++) {
-        news_url_a[i].href = 'http://news.baidu.com/ns?tn=news&word=' + newsObj.newsdata.data[i].query_word;
-        news_url_a[i].innerText = newsObj.newsdata.data[i].query_word;
-        news_url_a[i].target = '_blank';
-        news_url_a[i].style.cssText = 'top:'+((news_url_a[i].parentNode.clientHeight - news_url_a[i].clientHeight) / 2)+'px;';
-    }
+    newsObj.News_ajax();
+   
 }
 newsObj.color();
