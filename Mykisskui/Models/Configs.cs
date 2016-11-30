@@ -315,6 +315,22 @@ namespace Mykisskui.Models
             return result;
                 
         }
+        /// <summary>
+        /// 获取百度热搜新闻
+        /// </summary>
+        /// <param name="type">默认值为热搜新闻</param>
+        /// <param name="v">默认值为热搜新闻</param>
+        /// <returns></returns>
+        public static Model.baiduNews BaiduNews(string v = "hot_word",int type = 0) {
+            string result = string.Empty;
+            Model.baiduNews baidunews = new Model.baiduNews();
+            Model model = new Model();
+            string URL = string.Format("http://news.baidu.com/n?m=rddata&v={0}&type={1}", v,type);
+            result = PostAndGet.GetResponseString(URL);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            baidunews = js.Deserialize<Model.baiduNews>(result);
+            return baidunews;
+        }
 
 
 

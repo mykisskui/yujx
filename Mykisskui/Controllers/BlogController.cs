@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Mykisskui.Controllers
 {
@@ -37,6 +38,16 @@ namespace Mykisskui.Controllers
             
             ViewBag.data = Configs.articleListData(2, 0,id).FirstOrDefault();
             return View();
+        }
+        /// <summary>
+        /// 抓去百度新闻数据
+        /// http://news.baidu.com/ns?tn=news&word=国务院规范辅警工作
+        /// </summary>
+        /// <returns></returns>
+        public string baiduNews() {
+            Model.baiduNews baidunews = Configs.BaiduNews("hot_word", 8);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(baidunews);
         }
         /// <summary>
         /// 音乐模版

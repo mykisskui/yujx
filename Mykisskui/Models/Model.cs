@@ -47,6 +47,20 @@ namespace Mykisskui.Models
            public static List<article> relate { get; set; }
             
         }
+        /// <summary>
+        /// 百度热搜新闻
+        /// </summary>
+        public class baiduNews {
+           public int errno { get; set; }
+            public List<baiduNewsData> data { get; set; }
+        }
+        public class baiduNewsData {
+            public string title { get; set; }
+            public string desc { get; set; }
+            public string query_word { get; set; }
+            public string image { get; set; }
+            public string image_v { get; set; }
+        }
 
 
 
