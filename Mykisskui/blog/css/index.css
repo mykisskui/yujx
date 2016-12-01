@@ -127,6 +127,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 .news{
     width:100%;
     overflow:hidden;
+    position:relative;
 }
     .news > div {
         margin:0 auto 20px auto;
@@ -138,10 +139,11 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 }
     .news > div > div > div{
         position:relative;
-        border:1px solid #fff;
+        /*border:1px solid #fff;*/
         float:left;
         margin:2px;
         padding:0 2px;
+        overflow:hidden;
     }
 .news_layout {
     width:212px;
@@ -170,7 +172,47 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
    line-height:1.1;
    padding:5px;
    overflow:hidden;
-    
+}
+.news_url_div {
+    position:absolute;
+    background:#000;
+    opacity:0;
+    width:100%;
+    height:100%;
+    z-index:10;
+    bottom:-500px;
+         -webkit-transition:all 0.5s;
+         transition:all 0.5s;
+}
+    .news_url_div > a {
+        display:block;
+        text-decoration:none;
+        color:#fff;
+    }
+.news_loading {
+       /*-webkit-transition:all 0.5s;
+         transition:all 0.5s;*/
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:0px;
+    display:block;
+    margin:0!important;
+}
+
+.news_loading  > i {
+    color:#fff;
+    font-size:20px;
+    opacity:0;
+
+}
+
+   
+.news > div > div > div:hover > .news_url_div {
+    bottom:0px;
+    opacity:.9!important;
+    cursor:pointer;
 }
       
 /*ĞÂÎÅend*/

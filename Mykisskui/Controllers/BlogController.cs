@@ -45,7 +45,11 @@ namespace Mykisskui.Controllers
         /// </summary>
         /// <returns></returns>
         public string baiduNews() {
-            Model.baiduNews baidunews = Configs.BaiduNews("hot_word", 8);
+
+            int[] type = new int[] { 1,2,5,14,6,10,8,4,3 };
+            Random rand = new Random();
+            
+            Model.baiduNews baidunews = Configs.BaiduNews("hot_word", type[rand.Next(type.Length)]);
             JavaScriptSerializer js = new JavaScriptSerializer();
             return js.Serialize(baidunews);
         }

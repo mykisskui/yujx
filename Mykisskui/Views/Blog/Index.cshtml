@@ -13,6 +13,7 @@
     <link href="/blog/css/media.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="baidu_union_verify" content="af07ea4fb65e33ffc012d00826d0509a">
+    <link href="~/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="/blog/js/modernizr.js"></script>
     <![endif]-->
@@ -30,14 +31,91 @@
 <body>
 
     <div class="ibody">
-      @Html.Partial("Menu");
+      @Html.Partial("Menu")
         <article>
-            <div class="banner">
+            @*<div class="banner">
                 <ul class="texts">
                     <p>The best life is use of willing attitude, a happy-go-lucky life. </p>
                     <p>最好的生活是用心甘情愿的态度，过随遇而安的生活.</p>
                 </ul>
+            </div>*@
+            <div class="bloglist">
+                @*<h2>
+                <p><span>热搜</span>新闻</p>
+            </h2>*@
+                <div>
+                
+                </div>
+                <div class="news">
+                    <div>
+                        <div class="news_layout">
+                            <div class="news_layout_1">
+                                <a href="#">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="news_layout">
+                            <div class="news_layout_2">
+                                <a href="#">
+                                </a>
+                            </div>
+                            <div class="news_layout_3">
+                                <a href="#">
+                                </a>
+                            </div>
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                        </div>
+                        <div class="news_layout">
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                        </div>
+                        <div class="news_layout">
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                            <div class="news_layout_2">
+                                <a href="#"></a>
+                            </div>
+                        </div>
+                        <div class="news_layout">
+                            <div class="news_layout_1">
+                                <a href="#"></a>
+                            </div>
+                        </div>
+                        <div class="news_layout">
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                            <div class="news_layout_3">
+                                <a href="#"></a>
+                            </div>
+                            <div class="news_layout_2">
+                                <a href="#"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news_loading" id="news_loading">
+                        <i class="icon-spinner  icon-spin icon-2x pull-left"></i>
+                    </div>
+                </div>
+             
             </div>
+
             <div class="bloglist">
                 <h2>
                     <p><span>推荐</span>文章</p>
@@ -60,77 +138,8 @@
                      }
                 }
             </div>
-            <div class="bloglist">
-                @*<h2>
-                    <p><span>热搜</span>新闻</p>
-                </h2>*@
-                <div class="news">
-                    <div>
-                        <div class="news_layout">
-                                <div class="news_layout_1">
-                                    <a href="#">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="news_layout">
-                                <div class="news_layout_2">
-                                    <a href="#">
-                                    </a>
-                                </div>
-                                <div class="news_layout_3">
-                                    <a href="#">
-                                    </a>
-                                </div>
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                            </div>
-                            <div class="news_layout">
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                            </div>
-                            <div class="news_layout">
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                                <div class="news_layout_2">
-                                    <a href="#"></a>
-                                </div>
-                            </div>
-                            <div class="news_layout">
-                                <div class="news_layout_1">
-                                    <a href="#"></a>
-                                </div>
-                            </div>
-                            <div class="news_layout">
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                                <div class="news_layout_3">
-                                    <a href="#"></a>
-                                </div>
-                                <div class="news_layout_2">
-                                    <a href="#"></a>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
         </article>
-        @Html.Partial("Right");
+        @Html.Partial("Right")
         <script src="~/js/jquery-1.8.2.min.js"></script>
         <script src="/blog/js/silder.js"></script>
         <div class="clear"></div>
