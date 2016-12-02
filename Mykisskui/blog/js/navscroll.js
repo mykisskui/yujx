@@ -7,7 +7,14 @@ var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
 if (isMobile) {
     document.getElementsByTagName('header')[0].style.cssText = 'height:' + (nav.clientHeight) + 'px;';
 } else {
+
+
+    if (document.getElementsByTagName('aside')[0].clientWidth > 0 ) {
     nav.style.cssText = 'width:' + (article.clientWidth - 80) + 'px;position:fixed;top:0;z-index:100;';
+    } else {
+
+        nav.style.cssText = 'width:' + (article.clientWidth ) + 'px;position:fixed;top:0;z-index:100;';
+    }
 
 }
 
