@@ -14,7 +14,7 @@ obj.id='topnav_current'
 
 //随机赋值颜色
  
-var newsObj = {}, children, news_a, val = 0, news_url_div, Naviobject;
+var newsObj = {}, children, news_a, val = 0, news_url_div, Naviobject =null;
 newsObj.news = document.getElementsByClassName('news_layout');
 newsObj.newsdata;
 newsObj.newsLayoutTopAndLeft = [];
@@ -35,18 +35,18 @@ newsObj.randomCol = function() {
     var b = Math.floor(Math.random() * 255);
     return  'rgb(' + r + ',' + g + ',' + b + ')';
 }
-newsObj.News_ajax = function () {
+newsObj.News_ajax = function (a) {
     var result = '';
     $.ajax({
         url: '/blog/baiduNews',
         type: 'get',
+        data:{ v:a },
         //   async:false,
         beforeSend: function () {
-            
+            newsObj.newsLoadingbeforeSend();
         },
         complete: function () {
-            news_loading.style.cssText = '';
-            news_loading.children[0].style.cssText = '';
+            newsObj.newsLoadingcomplete();
         },
         success: function (data) {
             newsObj.newsdata = JSON.parse(data);
@@ -118,11 +118,15 @@ newsObj.naviClick = function (e) {
             _f = false;
         }
     }
-    console.log(_target);
+    newsObj.News_ajax(_target.getAttribute('data-type'));
     if (Naviobject == _target) {
         //false
     } else {
         try {
+            if (Naviobject == null) {
+                Naviobject = _target.parentNode.getElementsByClassName('news_navi_li_on').item(0);
+            }
+
             Naviobject.className = Naviobject.className.replace('news_navi_li_on', '');
         } catch (e) {
 
@@ -157,13 +161,21 @@ newsObj.newsLayoutPosition = function () {//위치 설정
       newsObj.news[i].className += ' news_layout_transition';
     }
 }
+newsObj.newsLoadingbeforeSend = function () {
+    news_loading.style.cssText = 'height:' + ((news_loading.parentNode.clientWidth / 6)) + 'px;width:' + (news_loading.parentNode.clientWidth / 6) + 'px; padding:' + (news_loading.parentNode.clientHeight - 20 - (news_loading.parentNode.clientWidth / 6)) / 2 + 'px ' + (news_loading.parentNode.clientWidth - (news_loading.parentNode.clientWidth / 6)) / 2 + 'px;';
+    news_loading.children[0].style.cssText = 'opacity:.9;font-size:' + (news_loading.parentNode.clientWidth / 6) + 'px; ';
+}
+newsObj.newsLoadingcomplete = function () {
+    news_loading.style.cssText = '';
+    news_loading.children[0].style.cssText = '';
+}
+
 window.onresize = function () {
     newsObj.color();
 }
 window.onload = function () {
     document.getElementById('news_navi_ul').addEventListener('click', newsObj.naviClick, false);
-    newsObj.News_ajax();
+    newsObj.News_ajax(8);
 }
 newsObj.color();
-news_loading.style.cssText = 'height:' + ((news_loading.parentNode.clientWidth / 6)) + 'px;width:' + (news_loading.parentNode.clientWidth / 6) + 'px; padding:' + (news_loading.parentNode.clientHeight - 20 - (news_loading.parentNode.clientWidth / 6)) / 2 + 'px ' + (news_loading.parentNode.clientWidth - (news_loading.parentNode.clientWidth / 6)) / 2 + 'px;';
-news_loading.children[0].style.cssText = 'opacity:.9;font-size:' + (news_loading.parentNode.clientWidth / 6) + 'px; ';
+newsObj.newsLoadingbeforeSend();

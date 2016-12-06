@@ -128,6 +128,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
     width:100%;
     overflow:hidden;
     position:relative;
+    background:#000;
 }
     .news > div {
         margin:0 auto 0 auto;
@@ -150,7 +151,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
     height:212px;
 }
 .news_layout_transition {
-    -webkit-transition:all 1s;
+    -webkit-transition:all 0.5s;
 }
 .news_layout_1 {
     width:202px;
@@ -179,6 +180,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 .news_url_div {
     position:absolute;
     background:#000;
+    left:0;
     opacity:0;
     width:100%;
     height:100%;
@@ -202,7 +204,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
     height:0px;
     display:block;
     margin:0!important;
-    z-index:15;
+    z-index:30;
 }
 
 .news_loading  > i {
@@ -238,7 +240,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
             font-size:12px;
             font-family:'Microsoft YaHei';
             -webkit-transition:all 1s;
-            transition:all 1s;
+            transition:all .s;
         }
             .news_navi > ul > li:hover {
                 cursor:pointer;

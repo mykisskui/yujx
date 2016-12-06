@@ -44,12 +44,13 @@ namespace Mykisskui.Controllers
         /// http://news.baidu.com/ns?tn=news&word=国务院规范辅警工作
         /// </summary>
         /// <returns></returns>
-        public string baiduNews() {
+        public string baiduNews(int v = 8) {
 
-            int[] type = new int[] { 1,2,5,14,6,10,8,4,3 };
-            Random rand = new Random();
-            
-            Model.baiduNews baidunews = Configs.BaiduNews("hot_word", type[rand.Next(type.Length)]);
+        //   int[] type = new int[] { 1,2,5,14,6,10,8,4,3 };
+        //    Random rand = new Random();
+
+            // Model.baiduNews baidunews = Configs.BaiduNews("hot_word", type[rand.Next(type.Length)]);
+            Model.baiduNews baidunews = Configs.BaiduNews("hot_word",v);
             JavaScriptSerializer js = new JavaScriptSerializer();
             return js.Serialize(baidunews);
         }
