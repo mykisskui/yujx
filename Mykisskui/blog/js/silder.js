@@ -83,7 +83,6 @@ newsObj.color = function () {
             news_div_Layout[i].style.cssText = 'z-index:' + i + ';width:' + (news_div_width) + 'px;height:' + news_div_width + 'px;';
             news_div_Layout[i].style.cssText += 'top:' + news_div_Layout[i].offsetTop + 'px;left:' + news_div_Layout[i].offsetLeft + 'px;';
             newsObj.newsLayoutTopAndLeft[TopAndLeftIndex] = { name: news_div_Layout[i], top: news_div_Layout[i].offsetTop, left: news_div_Layout[i].offsetLeft };
-            console.log(i + ":" + news_div_Layout[i].offsetTop);
 
             TopAndLeftIndex++;
         }
@@ -146,12 +145,32 @@ newsObj.naviClick = function (e) {
             RandomExist.push(TopAndLeftValue);
         }
     }
+    
     TopAndLeftValue = 0;
     newsObj.newsLayoutTopAndLeft.forEach(function (a, b, c) {
+        newsObj.newsLayoutchildrenLate(a.name, c[RandomExist[TopAndLeftValue]]);
+        setTimeout(function () { 
         a.name.style.top = '' + c[RandomExist[TopAndLeftValue]].top + 'px';
         a.name.style.left = ''+c[RandomExist[TopAndLeftValue]].left+'px';
         TopAndLeftValue++;
+        }, 300);
     });
+
+
+
+}
+newsObj.newsLayoutchildrenLate = function (a, b) {
+    for (var i = 0; i < a.children.length; i++) {
+        a.children[i].style.transition = 'all 0.5s';
+                a.children[i].style.cssText += ' transform:translate(' + (Math.random()*255) + 'px,' +(Math.random()*255) + 'px)';
+    }
+    setTimeout(function () { 
+            for (var i = 0; i < a.children.length; i++) {
+                a.children[i].style.transition = 'all 1s';
+                        a.children[i].style.transform = 'translate(0px,0px)';
+            }
+    }, 200);
+        
 }
 newsObj.newsLayoutPosition = function () {//위치 설정
     for (var i = 0; i < newsObj.news.length; i++) {
