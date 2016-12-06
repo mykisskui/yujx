@@ -145,6 +145,14 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
         margin:2px;
         padding:0 2px;
         overflow:hidden;
+
+        -webkit-transition: all 0.5s;
+        transition:all 0.5s;
+          -webkit-transform: translateZ(0); 
+   -moz-transform: translateZ(0); 
+   -ms-transform: translateZ(0); 
+   -o-transform: translateZ(0); 
+   transform: translateZ(0); 
     }
 .news_layout {
     width:212px;
@@ -152,6 +160,12 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
 }
 .news_layout_transition {
     -webkit-transition:all 0.5s;
+      transition:all 0.5s;
+         -webkit-transform: translateZ(0); 
+   -moz-transform: translateZ(0); 
+   -ms-transform: translateZ(0); 
+   -o-transform: translateZ(0); 
+   transform: translateZ(0); 
 }
 .news_layout_1 {
     width:202px;
