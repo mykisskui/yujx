@@ -14,15 +14,16 @@ obj.id='topnav_current'
 
 //随机赋值颜色
  
-var newsObj = {}, children, news_a, val = 0, news_url_div;
+var newsObj = {}, children, news_a, val = 0, news_url_div, Naviobject;
+newsObj.news = document.getElementsByClassName('news_layout');
 newsObj.newsdata;
+newsObj.newsLayoutTopAndLeft = [];
 newsObj.newsLayout = function (a, b, c,d) {
     children = a.children;
     children[b].style.cssText = 'background:' + newsObj.randomCol() + ';';
     news_a = children[b].getElementsByTagName('a')[0];
     news_a.className = 'news_url_a';
     //news_a.style.cssText = 'top:' + ((children[b].clientHeight - (news_a.clientHeight > 30 ? 30 : news_a.clientHeight)) / 2) + 'px;';
-    console.log(news_a.clientHeight);
     return ((children.length - 1) == b ? 0 : newsObj.newsLayout(a, b + 1, c));
 
 }
@@ -67,7 +68,7 @@ newsObj.News_ajax = function () {
     return result;
 }
 newsObj.color = function () {
-    var news_div, news_div_width, news_clientwidth, _indexof,news_div_width
+    var news_div, news_div_width, news_clientwidth, _indexof, news_div_width, TopAndLeftIndex = 0;
     for (var i = 0; i < news.length; i++) {
         a = newsObj.newsLayout(news.item(i),0,news.length);
     }
@@ -79,7 +80,13 @@ newsObj.color = function () {
     news_div_width = _indexof > 0 ? news_div_width.toString().substring(0, _indexof) : news_div_width;
     for (var i = 0; i < news_div_Layout.length; i++) {
         if (news_div_Layout[i].className == 'news_layout') {
-            news_div_Layout[i].style.cssText = 'width:' + (news_div_width) + 'px;height:'+news_div_width+'px;';
+            //위치설정
+            news_div_Layout[i].style.cssText = 'z-index:' + i + ';width:' + (news_div_width) + 'px;height:' + news_div_width + 'px;';
+            news_div_Layout[i].style.cssText += 'top:' + news_div_Layout[i].offsetTop + 'px;left:' + news_div_Layout[i].offsetLeft + 'px;';
+            newsObj.newsLayoutTopAndLeft[TopAndLeftIndex] = { name: news_div_Layout[i], top: news_div_Layout[i].offsetTop, left: news_div_Layout[i].offsetLeft };
+            console.log(i + ":" + news_div_Layout[i].offsetTop);
+
+            TopAndLeftIndex++;
         }
         switch (news_div_Layout[i].className) {
             case 'news_layout_1':
@@ -96,11 +103,13 @@ newsObj.color = function () {
                 break;
         }
     }
+    news.style.cssText = 'height:' + news.clientHeight + 'px;';
+        newsObj.newsLayoutPosition();
 }
+
 newsObj.naviClick = function (e) {
     var _target = e.target, _f = true;
     while (_f) {
-        console.log(_target.localName);
         if(_target.localName =='html'){
             _f = false;
         } else if (_target.localName != 'li') {
@@ -108,6 +117,44 @@ newsObj.naviClick = function (e) {
         } else {
             _f = false;
         }
+    }
+    console.log(_target);
+    if (Naviobject == _target) {
+        //false
+    } else {
+        try {
+            Naviobject.className = Naviobject.className.replace('news_navi_li_on', '');
+        } catch (e) {
+
+        }
+        Naviobject = _target;
+
+        _target.className = 'news_navi_li_on';
+    }
+
+    var RandomValue = 6, TopAndLeftValue, RandomExist = [];
+    for (var i = 0; i < RandomValue; i++) {
+        TopAndLeftValue = Math.floor(Math.random() * RandomValue);
+        if (RandomExist.length >= 6) {
+            break;
+        } else if (RandomExist.indexOf(TopAndLeftValue) != -1) {
+             i = -1;
+        } else {
+            RandomExist.push(TopAndLeftValue);
+        }
+    }
+    TopAndLeftValue = 0;
+    newsObj.newsLayoutTopAndLeft.forEach(function (a, b, c) {
+        a.name.style.top = '' + c[RandomExist[TopAndLeftValue]].top + 'px';
+        a.name.style.left = ''+c[RandomExist[TopAndLeftValue]].left+'px';
+        TopAndLeftValue++;
+    });
+}
+newsObj.newsLayoutPosition = function () {//위치 설정
+    for (var i = 0; i < newsObj.news.length; i++) {
+        //top,left 설정
+      newsObj.news[i].style.position = 'absolute';
+      newsObj.news[i].className += ' news_layout_transition';
     }
 }
 window.onresize = function () {

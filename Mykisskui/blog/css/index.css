@@ -149,6 +149,9 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
     width:212px;
     height:212px;
 }
+.news_layout_transition {
+    -webkit-transition:all 1s;
+}
 .news_layout_1 {
     width:202px;
     height:206px;
@@ -199,6 +202,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
     height:0px;
     display:block;
     margin:0!important;
+    z-index:15;
 }
 
 .news_loading  > i {
