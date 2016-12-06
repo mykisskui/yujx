@@ -240,7 +240,7 @@ a.readmore { background: #e41635; color: #fff; padding: 5px 10px; float: right; 
             font-size:12px;
             font-family:'Microsoft YaHei';
             -webkit-transition:all 1s;
-            transition:all .s;
+            transition:all 1s;
         }
             .news_navi > ul > li:hover {
                 cursor:pointer;

@@ -50,10 +50,9 @@ newsObj.News_ajax = function (a) {
         },
         success: function (data) {
             newsObj.newsdata = JSON.parse(data);
-            news_url_div = document.createElement('div');
-            news_url_div.id = 'div';
             var news_url_a = document.getElementsByClassName('news_url_a');
             for (var i = 0; i < news_url_a.length; i++) {
+                news_url_a[i].parentNode.getElementsByClassName('news_url_div').length > 0 && (news_url_a[i].parentNode.removeChild(news_url_a[i].parentNode.getElementsByClassName('news_url_div').item(0)));
                 news_url = 'http://news.baidu.com/ns?tn=news&word=' + newsObj.newsdata.data[i].query_word;
                 news_url_a[i].href = news_url;
                 news_url_a[i].innerText = newsObj.newsdata.data[i].query_word;
