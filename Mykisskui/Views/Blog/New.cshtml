@@ -57,7 +57,7 @@
                     </ul>
                 </div>
 
-                <div class="ds-share" data-thread-key="@art.Id" data-title="@art.Title" data-images="@art.key" data-content="@art.Text" data-url="http://www.yujx.org/blog/New/@(art.Id)">
+                <div class="ds-share" data-thread-key="@art.Id" data-title="@art.Title" data-images="@art.key" data-content="@(art.Text.Length > 200 ? art.Text.Substring(0,200) : art.Text )" data-url="http://www.yujx.org/blog/New/@(art.Id)">
                     <div class="ds-share-inline">
                         <ul class="ds-share-icons-16">
 
@@ -91,10 +91,11 @@
             </div>
         </article>
         @Html.Partial("Right")
-        @*<script src="/blog/js/silder.js"></script>*@
+        <script src="/blog/js/silder.js"></script>
         <div class="clear"></div>
         <script src="~/blog/js/baidutuisong.js"></script>
         <script src="~/blog/js/navscroll.js"></script>
+
         <!-- 清除浮动 -->
     </div>
 </body>
