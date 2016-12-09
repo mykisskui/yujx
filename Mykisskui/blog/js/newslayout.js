@@ -102,7 +102,7 @@ newsObj.naviClick = function (e) {
             _f = false;
         }
     }
-    newsObj.News_ajax(_target.getAttribute('data-type'));
+  
     if (Naviobject == _target) {
         //false
     } else {
@@ -138,6 +138,10 @@ newsObj.naviClick = function (e) {
         a.name.style.left = '' + c[RandomExist[TopAndLeftValue]].left + 'px';
         TopAndLeftValue++;
     });
+
+    setTimeout(function () {
+        newsObj.News_ajax(_target.getAttribute('data-type'));
+    }, 300);
 }
 newsObj.newsLayoutchildrenLate = function (a, b) {
     for (var i = 0; i < a.children.length; i++) {
