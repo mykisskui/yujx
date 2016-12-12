@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
+using System.Net.WebSockets;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -77,6 +79,18 @@ namespace Mykisskui.Controllers
             return PartialView();
         }
         public ActionResult message() {
+
+            return View();
+        }
+        public ActionResult ws() {
+
+            return View();
+        }
+        public ActionResult server() {
+
+            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+            
+
 
             return View();
         }

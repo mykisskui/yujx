@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Mykisskui.Models
 {
     public class Base
     {
+        
         /// <summary>
         /// MD5加密
         /// </summary>
