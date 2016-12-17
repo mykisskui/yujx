@@ -82,15 +82,19 @@ namespace Mykisskui.Controllers
 
             return View();
         }
+        /// <summary>
+        /// websocket 分布布局
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ws() {
 
             return View();
         }
+        /// <summary>
+        /// websocket测试
+        /// </summary>
+        /// <returns></returns>
         public ActionResult server() {
-
-            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
-            
-
 
             return View();
         }

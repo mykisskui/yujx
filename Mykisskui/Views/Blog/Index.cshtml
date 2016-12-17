@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="baidu_union_verify" content="af07ea4fb65e33ffc012d00826d0509a">
     <link href="~/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+
     <!--[if lt IE 9]>
     <script src="/blog/js/modernizr.js"></script>
     <![endif]-->
@@ -158,10 +159,10 @@
                     <p><span>推荐</span>文章</p>
                 </h2>
                 @{
-                      foreach(Mykisskui.article item in ViewBag.data)
-                      {
-                          string type = Mykisskui.Models.Configs.TypeToString(Int32.Parse(item.type.ToString()));
-                          string image = item.key.Trim() == string.Empty ? "/blog/images/mi.png" : item.key;
+                    foreach (Mykisskui.article item in ViewBag.data)
+                    {
+                        string type = Mykisskui.Models.Configs.TypeToString(Int32.Parse(item.type.ToString()));
+                        string image = item.key.Trim() == string.Empty ? "/blog/images/mi.png" : item.key;
                                 <div class="blogs">
                                     <h3><a href="/Blog/New/@item.Id" target="_blank">@item.Title</a></h3>
                                     <figure><img src="@image"></figure>
@@ -172,15 +173,16 @@
                                     <p class="autor"><span>作者：@item.author</span><span>分类：【<a href="/">@type</a>】</span><span>浏览（<a href="/">@item.read</a>）</span><span>评论（<a href="/">@item.tread</a>）</span></p>
                                     <div class="dateview">@item.Time.Value.ToString("yyyy-MM-dd")</div>
                                 </div>
-                     }
+                    }
                 }
             </div>
         </article>
         @Html.Partial("Right")
-
-
+        <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+        <script src="~/Scripts/jquery.signalR-2.2.1.js"></script>
+        <script src="/signalr/hubs"></script>
+        <script src="~/blog/js/Hub.js"></script>
         @Html.Partial("ws")
-        <script src="~/js/jquery-1.8.2.min.js"></script>
         <script src="/blog/js/silder.js"></script>
         <script src="~/blog/js/newslayout.js"></script>
         <div class="clear"></div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mykisskui.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,6 +37,7 @@ namespace Mykisskui
                 {
                     //ASP.NET的400与404错误不记录日志，并都以自定义404页面响应
                     var httpCode = httpError.GetHttpCode();
+                    timeStamp.writelog(httpError.Message);
                     if (httpCode == 400 || httpCode == 404)
                     {
                         Response.StatusCode = 404;//在IIS中配置自定义404页面

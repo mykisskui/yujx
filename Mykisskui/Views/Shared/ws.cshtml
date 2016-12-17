@@ -2,13 +2,14 @@
     .ws_body {
         position:fixed;
         bottom:0;
-        right:-305px;
+        right:0;
+        transform:translate(305px,0px);
        width:300px;
        height:500px;
               background:#eee;
                font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 
-    box-shadow: 0 0 10px #cacaca;
+    box-shadow: -1px -1px  1px #cacaca;
     z-index:9999;
 
     }
@@ -16,21 +17,24 @@
         -webkit-transition:all 1s;
     }
     .ws_close {
-               position: absolute;
-    left: -34px;
+     position: fixed;
+    right: 0px;
     background: #eee;
-    padding: 5px 10px;
+    height: 40px;
+    width: 50px;
     font-size: 14px;
-    font-weight: 400;
-    box-shadow: -3px -3px 0px 1px #cacaca;
+    box-shadow: -1px -1px 1px #cacaca;
     color: #2b2b2b;
     font-family: microsoft yahei;
+    line-height: 40px;
+    text-align: center;
+
+   
     }
         .ws_close:hover {
-            background:#aaa;
+            background:#d0d0d0;
             color:#fff;
             cursor:pointer;
-              box-shadow: -3px -3px 0px 1px #fff;
         }
     .ws_ope {
                position:absolute;
@@ -39,7 +43,7 @@
             width:100%;
     }
         .ws_body #ws_send {
-            background:#aaa;
+            background:#2f2f2f;
             border:1px solid #fff;
             line-height:2;
             text-align:center;
@@ -48,7 +52,7 @@
             font-size: 14px;
             font-weight: bold;
             font-family: microsoft yahei;
-     
+            width:100%;
         }
     
         .ws_body #ws_name > input{
@@ -58,12 +62,12 @@
     border-right: 0;
     outline: none;
     display: block;
-    width: 280px;
-
+    width:100%;
         }
     .ws_content {
         color:#000;
-
+        overflow:auto;
+        height:420px;
     }
         .ws_content > div {
             padding:5px 0 5px 10px;
@@ -83,11 +87,55 @@
     .ws_admin {
        color:blue;
     }
+    ::-webkit-scrollbar {
+        width:5px;
+    }
+    ::-webkit-scrollbar-track {
+        background:#eee;  /*滚动条背景色*/
+    }
+    ::-webkit-scrollbar-thumb {
+        background:#e2dddd;/*滑块颜色*/
+        border-radius:10px;
+
+    }
+    .ws_UserName {
+        position:fixed;
+        right:0px;
+        transform:translate(200px,0);
+        background:#3b3c3b;
+        width:200px;
+        height:40px;
+       transition:all 0.5s;
+    }
+    .ws_UserName, .ws_close {
+        bottom:500px;
+    }
+        .ws_UserName div {
+            color:#fff;
+            line-height:40px;
+            font-weight:400;
+            font-size:14px;
+            margin:auto;
+            text-align:center;
+        }
+        .ws_UserName > div > input {
+                padding: 5px 5px;
+    margin: 6px auto;
+    border: 1px solid #eee;
+    display: block;
+    background: #e6e6e6;
+        }
 </style>
-<div class="ws_body" id="ws_body">
-    <div id="ws_close" data-type="1" class="ws_close">
-         <a>开</a>
+<div id="ws_close" data-type="1" class="ws_close">
+    <a>open</a>
+</div>
+<div class="ws_UserName" id="ws_UserName">
+    <div>
+        <input value="" id="ws_UserNameValue" placeholder="name" type="text" />
     </div>
+</div>
+<div class="ws_body" id="ws_body">
+   
     <div class="ws_content" id="ws_content">
         @*<div>
             <div class="ws_user">
@@ -110,60 +158,29 @@
     </div>
     <div class="ws_ope">
         <div id="ws_name">
-            <input value="" name="ws_text" />
+            <input value="" id="ws_text" name="ws_text" />
         </div>
         <div id="ws_send">发送</div>
     </div>
-  
 </div>
-
 <script>
-    var ws,ws_json,wsContentText;
-        ws = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + "/ws/Get");
-        ws.onopen = function () {
-            console.log('连接成功');
-            ws.send("{\"name\":\"yujx\"}");
-        };
-        ws.onmessage = function (result) {
-            //console.log(result.data);
-            ws_json = JSON.parse(result.data);
-
-            wsContentText = "<div>" +
-            "<div class=\""+ws_json.ws+"\">"+
-             "   <span>"+ws_json.name+"</span>"+
-            "    <span>"+ws_json.time+"</span>"+
-           " </div>"+
-          "  <div>"+
-         "       <span >" + ws_json.text + "</span>" +
-        "    </div>"+
-       " </div>";
-            ws_content.innerHTML += wsContentText;
-        };
-        ws.onerror = function (error) {
-            console.log(error);
-        };
-        ws.onclose = function () {
-            console.log('关闭');
-        };
-    document.getElementById('ws_send').onclick = function () {
-        var text = document.getElementById('ws_name').getElementsByTagName('input')[0].value;
-        ws.send(text);
-    }
     document.getElementById('ws_close').onclick = function () {
         var _self = this,childrenText;
         
         switch (_self.getAttribute('data-type')) {
             case '1':
                 //关闭状态
-                ws_body.style.cssText = 'right:0px;';
-                childrenText = '关';
+                ws_body.style.cssText = 'transform:translate(0px,0px);width:'+(document.body.clientWidth)+'px;';
+                childrenText = 'close';
                 _self.setAttribute('data-type', '0');
+                ws_text.focus();
+              ws_UserName.style.cssText = 'transform:translate(-55px,0)';
                 break;
             case '0':
                 //开启状态
                 ws_body.style.cssText = '';
-                
-                childrenText = '开';
+              ws_UserName.style.cssText = '';
+                childrenText = 'open';
                 _self.setAttribute('data-type', '1');
                 break;
         }
@@ -171,7 +188,5 @@
         setTimeout(function () {
             _self.children[0].innerText = childrenText;
         }, 1000);
-
     }
-
 </script>

@@ -15,18 +15,19 @@ using System.Web.WebSockets;
 
 namespace Mykisskui.Controllers
 {
-    public class wsController :Controller
+    public class wsController :ApiController//Controller
     {
        public List<user> users = new List<user>();
         //
         // GET: /ws/
-        public void Get()
+        public HttpResponseMessage Get()
         {
-            if (HttpContext.IsWebSocketRequest)
+            if (HttpContext.Current.IsWebSocketRequest)
             {
-                HttpContext.AcceptWebSocketRequest(ProcessWSChat);
+
+                HttpContext.Current.AcceptWebSocketRequest(ProcessWSChat);
             }
-        //    return new HttpResponseMessage(HttpStatusCode.SwitchingProtocols);
+          return new HttpResponseMessage(HttpStatusCode.SwitchingProtocols);
         }
         private async Task ProcessWSChat(AspNetWebSocketContext context)
         {
@@ -39,12 +40,12 @@ namespace Mykisskui.Controllers
             {
                 if (socket.State == WebSocketState.Open)
                 {
-
+                    ///
+                    var ss = users.AsEnumerable().Where(f => f.key == context.SecWebSocketKey).FirstOrDefault();
                     ArraySegment<byte> buffer = new ArraySegment<byte>(new byte[1024]);
                     WebSocketReceiveResult result = await socket.ReceiveAsync(buffer, CancellationToken.None);
                     string message = Encoding.UTF8.GetString(buffer.Array, 0, result.Count);
-                    ///
-                    var ss = users.AsEnumerable().Where(f => f.key == context.SecWebSocketKey).FirstOrDefault();
+
                     if (ss == null)
                     {
                         u = js.Deserialize<user>(message);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mykisskui.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
@@ -18,14 +19,18 @@ namespace Mykisskui
 
         public void ProcessRequest(HttpContext context)
         {
-            if (context.IsWebSocketRequest)
-            {
+
+            timeStamp.writelog("测试11111");
+          //  if (context.IsWebSocketRequest)
+         //   {
                 context.AcceptWebSocketRequest(ProcessChat);
-            }
+
+            timeStamp.writelog("过了一个坎");
+         //   }
         }
         private async Task ProcessChat(AspNetWebSocketContext context)
         {
-
+            timeStamp.writelog("context:" + context.SecWebSocketKey);
             WebSocket socket = context.WebSocket;
 
             while (true)
