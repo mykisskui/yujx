@@ -370,6 +370,7 @@
     <Content Include="blog\images\home.png" />
     <Content Include="blog\images\ibodybg.png" />
     <Content Include="blog\images\li.jpg" />
+    <Content Include="blog\images\loading.gif" />
     <Content Include="blog\images\logo.jpg" />
     <Content Include="blog\images\logo.png" />
     <Content Include="blog\images\ltpic.jpg" />
@@ -1013,6 +1014,7 @@
     <Content Include="ws.ashx" />
     <Content Include="Views\Blog\server.cshtml" />
     <Content Include="Views\mobile\Index.cshtml" />
+    <Content Include="Views\mobile\NewsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

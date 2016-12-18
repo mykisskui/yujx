@@ -16,6 +16,13 @@ namespace Mykisskui.Controllers
             return View();
         }
         /// <summary>
+        /// 모바일 뉴스 list
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult NewsList() {
+            return View();
+        }
+        /// <summary>
         /// PWA를 사용 하여 개발 test
         /// </summary>
         /// <returns></returns>

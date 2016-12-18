@@ -6,7 +6,7 @@
 <head>
     <title>Home</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
@@ -16,121 +16,242 @@
         body {
             margin: 0;
             font-family: 'Microsoft YaHei';
-            max-width:640px;
-            margin:auto;
         }
-
-            .topnavi, .topnavi-ul {
-                height: 35px;
-                background: #000;
-            }
-        a {
-            text-decoration:none;
-        }
-        .topnavi-ul , .topnavi-list,.position-left-div,.position-left-div-mask {
-            position:fixed;
-        }
-            .topnavi-list > ul,.topnavi-ul li:nth-child(2) i, .topnavi-ul > li:last-child, .topnavi-ul li a,.position-left-div ul li {
-                color:#fff;
-            }
-            .topnavi-ul, .position-left-div ul,.topnavi-list > ul  {
-                  list-style: none;
-            }
-                .topnavi-ul {
-                    z-index:8;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    display: -webkit-box;
-                    display: -moz-box;
-                    margin: 0;
-                    padding: 0;
-                }
-                    .topnavi-ul li {
-                        -webkit-box-flex: 1;
-                    }
-                    .topnavi-ul li {
-                        text-align: center;
-                        line-height: 35px;
-                    }
-                        .topnavi-ul > li:nth-child(2) i {
-                                font-size: 20px;
-                                width: 20px;
-                                height: 20px;
-                                display: block;
-                                margin: auto;
-                                padding: 7px 7px 8px 7px;
-                        }
-                        .topnavi-ul li:last-child {
-                            text-align: right;
-                            padding: 0 20px 0 0;
-                            font-size: 20px;
-                        }
-
-                        .topnavi-ul li a {
-                            font-size: 20px;
-                        }
-        .position-left-div {
-            left:0;
+        .mobile-loading {
+            position:absolute;
             top:0;
-            width:80%;
-            height:100%;
-            z-index:10;
-             transition:all 0.5s;
-             -webkit-transition:all 0.5s;
-                background:rgba(0,0,0,0.8);
-
-        }
-        .position-left-div-mask {
-            top:0;
-            left:0;
-            display:none;
+            z-index:9999;
+            display:table;
             width:100%;
-            height:100vh;
-            background:rgba(255,255,255,0);
-            z-index:9;
+            height:100%;
+            background:#000;
+          opacity: 1; 
+       -webkit-transition: opacity 1.5s;  
+       -moz-transition: opacity 0.3s;  
+       -webkit-animation-timing-function: ease-out;  
+       -moz-animation-timing-function: ease-out;  
         }
-            .position-left-div ul {
-     
+            .mobile-loading > div {
+                display:table-cell;
+                vertical-align:middle;
+                text-align:center;
+                color:#fff;
+                font-weight:bold;
+            }
+        .topnavi, .topnavi-ul {
+            height: 45px;
+        }
+
+        .topnavi-ul {
+            background: #000;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .topnavi-ul, .topnavi-list, .position-left-div, .position-left-div-mask {
+            position: fixed;
+        }
+
+            .topnavi-list > ul, .topnavi-ul li:nth-child(2) i, .topnavi-ul > li:last-child, .topnavi-ul li a, .position-left-div ul li {
+                color: #fff;
+            }
+
+            .topnavi-ul, .position-left-div ul, .topnavi-list > ul {
+                list-style: none;
+            }
+
+        .topnavi-ul {
+            z-index: 8;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+            .topnavi-ul li {
+                float: left;
+                width: 33.3%;
+            }
+
+            .topnavi-ul li {
+                text-align: center;
+                line-height: 45px;
+            }
+
+            .topnavi-ul > li:nth-child(2) i {
+                font-size: 20px;
+                width: 31px;
+                height: 31px;
+                line-height: 31px;
+                display: block;
+                margin: auto;
+                padding: 7px;
+            }
+
+            .topnavi-ul li:last-child i {
+                display: block;
+                margin: auto;
+                width: 31px;
+                height: 31px;
+                padding: 7px;
+                line-height: 31px;
+                font-size: 20px;
+            }
+
+            .topnavi-ul li a {
+                font-size: 20px;
+            }
+
+        .position-left-div {
+            left: 0;
+            top: 0;
+            width: 80%;
+            height: 100%;
+            z-index: 10;
+            background: rgba(0,0,0,1);
+        }
+
+        .transitionall {
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+        }
+
+        .position-left-div-mask {
+            top: 0;
+            left: 0;
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255,255,255,0);
+            z-index: 9;
+        }
+
+        .position-left-div ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .position-left-div > div {
+            padding: 40px 20px 0 20px;
+        }
+
+        .position-left-div ul li {
+            text-align: center;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(68, 68, 68, 0.64);
+            font-weight: 100;
+            font-size: 14px;
+        }
+
+        .topnavi-list {
+            left: 0;
+            width: 100%;
+            background: #000;
+            top: -65px;
+            transition: all 0.3s;
+        }
+
+            .topnavi-list > ul {
+                margin: 0;
+                padding: 0;
+                display: box;
+                display: -webkit-box;
+            }
+
+            .topnavi-list ul li {
+                -webkit-box-flex: 1 !important;
+                float: initial !important;
+                padding: 0 !important;
+                text-align: center !important;
+                margin: 5px 0;
+                border-right: 1px solid rgba(255,255,255,0.16);
+            }
+
+                .topnavi-list ul li a {
+                    font-size: 14px !important;
+                }
+        .mobile-content {
+                 font: 14px/1 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif; 
+        }
+        .mobile-content a {
+                      display:block;
+            white-space:pre-line;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            color:#6d6b6b;
+  
+        }
+        .mobile-content > div {
+                padding: 5px 10px;
+                border-bottom: 1px solid #efefef;
+                margin: 5px 10px;
+        }
+            .mobile-content > div:nth-child(1) div {
+                font-weight:bold;
+                margin: 0 0 0 -10px;
+                font-size:12px;
+            }
+            .mobile-content > div > div {
+                font-size:14px;
+            }
+                .mobile-content > div > div > div:last-child {
+                    padding:5px 0 0 0;
+                    font-size:12px;
+                    color:#a7a7a7;
+                }
+
+        .mobile-content-layout-2 {
+            display:-webkit-box;
+            display:box;
+            max-height:60px;
+        }
+            .mobile-content-layout-2 a {
+                text-align:left;
+            }
+            .mobile-content-layout-2 > div {
+                -webkit-box-flex:1;
+                box-flex:1;
+            }
+        .mobile-image > div {
+            /**/
+        }
+            .mobile-image-ul {
                 margin:0;
                 padding:0;
+                list-style:none;
+                display:box;
+                display:-webkit-box;
             }
-            .position-left-div  > div{
-                padding:40px 20px 0 20px;
-            }
-            .position-left-div ul li {
-                text-align:center;
-                padding:7px 0;
-                border-bottom:1px solid rgba(68, 68, 68, 0.64);
-                font-weight:100;
-            }
-        .topnavi-list {
-            left:0;
-            width:100%;
-            background:#000;
-            top:-50px;
-            transition:all 0.3s;
-        }
-            .topnavi-list > ul {
-               margin:0;
-               padding:0;
-               display:box;
-               display:-webkit-box;
-            }
-            .topnavi-list ul li {
+            .mobile-image-ul li {
                 -webkit-box-flex:1;
-                padding:0!important;
-                text-align:center!important;
-                margin:5px 0;
-                border-right:1px solid rgba(255,255,255,0.16);
+               padding:2px;
             }
-                .topnavi-list ul li a {
-                font-size:14px!important;
+                .mobile-image-ul li > img {
+                   width:100%;
+                   height:100%;
+                    object-fit:cover;
                 }
+        #mobileIndex, #mobileList,#mobileMessage {
+            -webkit-transition:all 0.5s;
+            transition:all 0.5s;
+            position:absolute;
+            top:45px;
+            width:100%;
+        }
     </style>
     <!-- css -->
 </head>
 <body>
+    <!-- loading -->
+    <div class="mobile-loading">
+         <div>
+             loading
+         </div>
+    </div>
+    <!-- loading -->
     <!--navi start-->
     <div class="topnavi">
         <ul id="topnavi-ul" class="topnavi-ul">
@@ -140,14 +261,12 @@
                 </a>
             </li>
             <li>
-                <!--icon-chevron-up-->
-                <!--icon-chevron-down-->
                 <i class="icon-chevron-down"></i>
                 <div class="topnavi-list">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a>文章</a></li>
-                        <li><a>留言板</a></li>
+                        <li class="mobileForm" data-form="mobileIndex"><a href="#">Home</a></li>
+                        <li class="mobileForm" data-form="mobileList"><a>文章</a></li>
+                        <li class="mobileForm" data-form="mobileMessage"><a>留言板</a></li>
                         <li><a>GitHub</a></li>
                     </ul>
                 </div>
@@ -156,36 +275,286 @@
                 <i class="icon-align-justify"></i>
             </li>
         </ul>
-     
     </div>
     <!--navi end-->
-
-    <!-- left div start -->
-    <div class="position-left-div-mask"></div>
-        <div class="position-left-div" >
+    <div id="mobileIndex">
+        <!-- image start -->
+        <div class="mobile-image">
+            <!-- 三,二,三 -->
+            <div>
+                <ul class="mobile-image-ul">
+                    <li>
+                        <img id="32" src="/blog/images/loading.gif"
+                             data-src="https://gss3.bdstatic.com/84oSdTum2Q5BphGlnYG/timg?wapp&quality=100&size=b250_2000&cut_x=0&cut_w=0&cut_y=0&cut_h=0&sec=1369815402&di=398c077b0639f2282531d95916f8c91b&wh_rate=null&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F7c51f8ca7bcb0a4620ad75f96363f6246960af82.jpg" />
+                    </li>
+                    <li>
+                        <img src="/blog/images/loading.gif"
+                             data-src="https://gss3.bdstatic.com/84oSdTum2Q5BphGlnYG/timg?wapp&quality=100&size=b250_2000&cut_x=0&cut_w=0&cut_y=0&cut_h=0&sec=1369815402&di=1774c87ce278a945170cfa5e19d15a91&wh_rate=null&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2Fa76854cb0a46f21f6dbba093fe246b600e33ae82.jpg" />
+                    </li>
+                    <li>
+                        <img src="/blog/images/loading.gif"
+                             data-src="https://gss3.bdstatic.com/84oSdTum2Q5BphGlnYG/timg?wapp&quality=100&size=b250_2000&cut_x=0&cut_w=0&cut_y=0&cut_h=0&sec=1369815402&di=7eaeb19146c97896cabd9174ebcc369f&wh_rate=null&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F0b692546f21fbe09bfd13dd463600c338544ad82.jpg" />
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="mobile-image-ul">
+                    <li>
+                        <img src="/blog/images/loading.gif"
+                             data-src="https://gss3.bdstatic.com/84oSdTum2Q5BphGlnYG/timg?wapp&quality=100&size=b250_2000&cut_x=0&cut_w=0&cut_y=0&cut_h=0&sec=1369815402&di=1774c87ce278a945170cfa5e19d15a91&wh_rate=null&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2Fa76854cb0a46f21f6dbba093fe246b600e33ae82.jpg" />
+                    </li>
+                    <li>
+                        <img src="/blog/images/loading.gif"
+                             data-src="https://gss3.bdstatic.com/84oSdTum2Q5BphGlnYG/timg?wapp&quality=100&size=b250_2000&cut_x=0&cut_w=0&cut_y=0&cut_h=0&sec=1369815402&di=7eaeb19146c97896cabd9174ebcc369f&wh_rate=null&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F0b692546f21fbe09bfd13dd463600c338544ad82.jpg" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--image end -->
+        <!-- top content  start -->
+        <div class="mobile-content">
+            <div>
                 <div>
+                    TOP
+                </div>
+            </div>
+
+            <!-- layout class="mobile-content-layout-2" -->
+            <div>
+                <div style="">
                     <div>
-                        <ul>
-                            <li>
-                                学
-                            </li>
-                            <li>
-                                Web前端工程师
-                            </li>
-                            <li>
-                                地球
-                            </li>
-                            <li>
-                                010-2655-7362
-                            </li>
-                            <li>
-                                mykisskui@gmail.com
-                            </li>
-                        </ul>
+                        <a>如何在网站上加Google翻译,实现多国家语言网站</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
                     </div>
                 </div>
+
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>如何在PHP中防止SQL注入？</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div class="mobile-content-layout-2">
+                <div>
+                    <div>
+                        <a>使用SignalR配置错误</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>PHP使用PDO连接数据库</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>设置tomcat帐号密码</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
         </div>
-    <div style="width:100%;height:2000px;"></div>
+        <!-- top content end-->
+        <!-- new content  start -->
+        <div class="mobile-content">
+            <div>
+                <div>
+                    NEW
+                </div>
+            </div>
+
+            <!-- layout class="mobile-content-layout-2" -->
+            <div>
+                <div style="">
+                    <div>
+                        <a>如何在网站上加Google翻译,实现多国家语言网站</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>如何在PHP中防止SQL注入？</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div class="mobile-content-layout-2">
+                <div>
+                    <div>
+                        <a>使用SignalR配置错误</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>PHP使用PDO连接数据库</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>设置tomcat帐号密码</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+        </div>
+        <!-- new content end-->
+    </div>
+    <div id="mobileList">
+        <div class="mobile-content">
+            <div>
+                <div>
+                    LIST
+                </div>
+            </div>
+
+            <!-- layout class="mobile-content-layout-2" -->
+            <div>
+                <div style="">
+                    <div>
+                        <a>如何在网站上加Google翻译,实现多国家语言网站</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>如何在PHP中防止SQL注入？</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div class="mobile-content-layout-2">
+                <div>
+                    <div>
+                        <a>使用SignalR配置错误</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>PHP使用PDO连接数据库</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+            <!-- layout -->
+            <div>
+                <div>
+                    <div>
+                        <a>设置tomcat帐号密码</a>
+                    </div>
+                    <div>
+                        <span>2016-12-18 14:48</span>
+                    </div>
+                </div>
+            </div>
+            <!--layout -->
+        </div>
+    </div>
+    <div id="mobileMessage">
+        <div style="display:table; width:100%;">
+            <div style="line-height:250px;text-align:center;color:#000;font-weight:bold;font-size:40px;">404</div>
+        </div>
+    </div>
+    <!-- left div start -->
+    <div class="position-left-div-mask"></div>
+    <div class="position-left-div">
+        <div>
+            <div>
+                <ul>
+                    <li>
+                        学
+                    </li>
+                    <li>
+                        Web前端工程师
+                    </li>
+                    <li>
+                        地球
+                    </li>
+                    <li>
+                        010-2655-7362
+                    </li>
+                    <li>
+                        mykisskui@gmail.com
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <!-- left div end -->
     <script>
         var dom = document;
@@ -193,20 +562,63 @@
         var positionLeftDivMark = dom.querySelector('.position-left-div-mask');
         var bodyWidth = dom.body.clientWidth;
         var conf = {};
-        conf.init = function () {
-           positionLeftDiv.style.cssText = 'transform:translate3d(-' +bodyWidth+ 'px,0,0);';
-        }();
+        conf.main = dom.querySelector('#mobileIndex');//默认主窗体
+        conf.loading = dom.querySelector('.mobile-loading');
+        conf.mobileIndex = dom.querySelector('#mobileIndex');//index
+        conf.mobileList = dom.querySelector('#mobileList');//list
+        conf.mobileMessage = dom.querySelector('#mobileMessage');//message
+        conf.mobileForm = dom.querySelector('.mobileForm');//
+        conf.imageList = new Array(),conf.imageID = new Array();
         conf.naviList = dom.querySelector('.topnavi-list');
+        conf.mobileImage = dom.querySelectorAll('.mobile-image-ul');
+        conf.init = function () {
+            dom.body.scrollTop = 0;
+            conf.loading.style.cssText = 'opacity:0;';
+            dom.ontouchstart = function () {
+                return false;
+            }
+            setTimeout(function () {
+                conf.loading.style.cssText = 'display:none;';
+                dom.ontouchstart = function () {
+                    return true;
+                }
+            }, 1000);
+            positionLeftDiv.style.cssText = 'transform:translate3d(-' + bodyWidth + 'px,0,0);';
+            setTimeout(function () {
+                positionLeftDiv.className += ' transitionall';
+            }, 500);
+            for (var i = 0; i < conf.mobileImage.length; i++) {
+                ImageWidth(conf.mobileImage[i],0);
+            }
+            conf.mobileList.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0)';
+            conf.mobileMessage.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0)';
+        }();
+        dom.addEventListener('touchend', function (e) {
+            var _target = e.target, f = true;
+            while (f) {
+                if (_target.className == 'mobileForm') {
+                    f = false;
+                    mobileFormSwitch(_target);//切换
+                }
+                else if (_target.localName == 'body') {
+                    f = false;
+                }else {
+                    _target = _target.parentNode;
+                }
+            }
+        });
         dom.getElementById('topnavi-ul').addEventListener('touchend', function (e) {
             var _target = e.target;
             switch (_target.className) {
-
                 case 'icon-align-justify':
                     positionLeftDiv.style.cssText = 'transform:translate(0,0);';
                     positionLeftDivMark.style.cssText = 'display:block;';
+                    dom.ontouchstart = function () {
+                        return false;
+                    }
                     break;
                 case 'icon-chevron-down':
-                    conf.naviList.style.cssText = 'transform:translate3d(0,85px,0)';
+                    conf.naviList.style.cssText = 'transform:translate3d(0,110px,0)';
                     _target.className = 'icon-chevron-up';
                     break;
                 case 'icon-chevron-up':
@@ -216,11 +628,38 @@
             }
         });
         positionLeftDivMark.addEventListener('touchend', function (e) {
-                
             positionLeftDiv.style.cssText = 'transform:translate3d(-' + bodyWidth + 'px,0,0);';
             positionLeftDivMark.style.cssText = 'display:none;';
-
+            dom.ontouchstart = function () {
+                return true;
+            }
         });
+        function mobileFormSwitch(a) {
+            var _self = a.getAttribute('data-form');
+            if (conf[_self] == conf.main) return false;
+                conf[_self].style.cssText = 'transform:translate(0,0);';
+                conf.main.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0)';
+            conf.main = conf[_self];
+        }
+        function ImageWidth(image,f) {
+            var _self = image.children;
+            _self[f].style.cssText = 'width:' + (bodyWidth / _self.length) + 'px; height:' + (bodyWidth / _self.length) + 'px;';
+            conf.imageList.push(_self[f].getElementsByTagName('img')[0].getAttribute('data-src'));
+            conf.imageID.push(_self[f].getElementsByTagName('img')[0]);
+            return f >= _self.length -1 ? true : ImageWidth(image, f+1);
+        }
+        function imgLoad() {
+            var _img = [];
+            for(var i=0;i<conf.imageList.length;i++){
+                _img[i] = new Image();
+                _img[i].src = conf.imageList[i];
+                _img[i].setAttribute('data-id', i);
+                _img[i].onload = function () {
+                    conf.imageID[Number(this.getAttribute('data-id'))].src = this.src;
+                }
+            }
+        }
+        imgLoad();
     </script>
 </body>
 </html>
