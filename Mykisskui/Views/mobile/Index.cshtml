@@ -198,7 +198,7 @@
                 font-size:14px;
             }
                 .mobile-content > div > div > div:last-child {
-                    padding:5px 0 0 0;
+                    padding:10px 0 5px 0;
                     font-size:12px;
                     color:#a7a7a7;
                 }
@@ -234,13 +234,65 @@
                    height:100%;
                     object-fit:cover;
                 }
-        #mobileIndex, #mobileList,#mobileMessage {
+        #mobileIndex, #mobileList,#mobileMessage ,#mobileListDetails{
             -webkit-transition:all 0.5s;
             transition:all 0.5s;
             position:absolute;
             top:45px;
             width:100%;
         }
+            .mobileListDetailsNavi {
+              font-size: 20px;
+    position: fixed;
+    right: 0px;
+    bottom: 70px;
+            }
+                .mobileListDetailsNavi > div:nth-child(1) {
+       text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.48);
+    border-radius: 50% 1px 1px 50%;
+                }
+               .mobileListDetailsNavi i {
+                color: #fff;
+    width: 50px;
+    display: block;
+    height: 50px;
+    line-height: 50px;
+                }
+            #mobileListDetails > div:nth-child(1) {
+                padding:5px 15px;
+            }
+                #mobileListDetails > div:nth-child(1) > div:nth-child(1) {
+                    font-size:16px;
+                }
+                #mobileListDetails > div:nth-child(1) > div:nth-child(2) {
+                    color:#464545;
+                    font-size:12px;
+                    padding:5px 0;
+                }
+                #mobileListDetails > div:nth-child(1) > div:nth-child(3) {
+                    font-size:14px;
+                }
+
+        .mobileForm,.mobileDetails,.mobileListDetailsNavi {
+            cursor:pointer;
+            -webkit-user-select:none;
+            user-select:none;
+            -webkit-tap-highlight-color:rgba(255,255,255,0);
+        }
+        ::selection {
+            background:rgba(255,255,255,0);
+        }
+        ::-webkit-selection {
+              background:rgba(255,255,255,0);
+        }
+        ::-moz-selection {
+               background:rgba(255,255,255,0);
+        }
+            .mobileForm, .mobileDetails:focus {
+                outline:none;
+            }
     </style>
     <!-- css -->
 </head>
@@ -265,8 +317,8 @@
                 <div class="topnavi-list">
                     <ul>
                         <li class="mobileForm" data-form="mobileIndex"><a href="#">Home</a></li>
-                        <li class="mobileForm" data-form="mobileList"><a>文章</a></li>
-                        <li class="mobileForm" data-form="mobileMessage"><a>留言板</a></li>
+                        <li class="mobileForm" data-form="mobileList"><a href="#">文章</a></li>
+                        <li class="mobileForm" data-form="mobileMessage"><a href="#">留言板</a></li>
                         <li><a>GitHub</a></li>
                     </ul>
                 </div>
@@ -321,7 +373,7 @@
 
             <!-- layout class="mobile-content-layout-2" -->
             <div>
-                <div style="">
+                <div class="mobileDetails" data-id="111">
                     <div>
                         <a>如何在网站上加Google翻译,实现多国家语言网站</a>
                     </div>
@@ -334,7 +386,7 @@
             <!--layout -->
             <!-- layout -->
             <div>
-                <div>
+                <div class="mobileDetails" data-id="111">
                     <div>
                         <a>如何在PHP中防止SQL注入？</a>
                     </div>
@@ -346,7 +398,7 @@
             <!--layout -->
             <!-- layout -->
             <div class="mobile-content-layout-2">
-                <div>
+                <div class="mobileDetails" data-id="111">
                     <div>
                         <a>使用SignalR配置错误</a>
                     </div>
@@ -358,7 +410,7 @@
             <!--layout -->
             <!-- layout -->
             <div>
-                <div>
+                <div class="mobileDetails" data-id="111">
                     <div>
                         <a>PHP使用PDO连接数据库</a>
                     </div>
@@ -370,7 +422,7 @@
             <!--layout -->
             <!-- layout -->
             <div>
-                <div>
+                <div class="mobileDetails" data-id="111">
                     <div>
                         <a>设置tomcat帐号密码</a>
                     </div>
@@ -464,12 +516,13 @@
 
             <!-- layout class="mobile-content-layout-2" -->
             <div>
-                <div style="">
+                <div class="mobileDetails" data-id="111">
                     <div>
                         <a>如何在网站上加Google翻译,实现多国家语言网站</a>
                     </div>
                     <div>
                         <span>2016-12-18 14:48</span>
+                        <span>浏览(180531)</span>
                     </div>
                 </div>
 
@@ -477,7 +530,7 @@
             <!--layout -->
             <!-- layout -->
             <div>
-                <div>
+                <div class="mobileDetails" data-id="111">
                     <div>
                         <a>如何在PHP中防止SQL注入？</a>
                     </div>
@@ -489,8 +542,8 @@
             <!--layout -->
             <!-- layout -->
             <div class="mobile-content-layout-2">
-                <div>
-                    <div>
+                <div class="mobileDetails" data-id="111">
+                    <div >
                         <a>使用SignalR配置错误</a>
                     </div>
                     <div>
@@ -501,8 +554,8 @@
             <!--layout -->
             <!-- layout -->
             <div>
-                <div>
-                    <div>
+                <div class="mobileDetails" data-id="111">
+                    <div >
                         <a>PHP使用PDO连接数据库</a>
                     </div>
                     <div>
@@ -513,8 +566,8 @@
             <!--layout -->
             <!-- layout -->
             <div>
-                <div>
-                    <div>
+                <div class="mobileDetails" data-id="111">
+                    <div >
                         <a>设置tomcat帐号密码</a>
                     </div>
                     <div>
@@ -530,6 +583,94 @@
             <div style="line-height:250px;text-align:center;color:#000;font-weight:bold;font-size:40px;">404</div>
         </div>
     </div>
+    <div id="mobileListDetails" data-form="mobileDetails">
+      
+        <div>
+             <div>
+                 十年经验与一年经验的程序员的区别
+                 十年经验与一年经验的程序员的区别
+                 十年经验与一年经验的程序员的区别
+             </div>
+            <div>
+                <span>2016-12-19 17:05</span>
+                <span>浏览(182832)</span>
+                <span>评论(100)</span>
+            </div>
+            <div>
+                想让你的网站或博客也能让外国朋友看得懂或是做简繁转换吗？哪有什么办法
+
+                可以实现网站自动翻译呢。哈哈，对使用“Google翻译”，就可以达到这个效果。
+
+                只要在网页上插入一个小工具就可以搞定啦！“Google翻译”使用很简单，
+
+                工具地址:http://translate.google.com/manager/website/?hl=zh-TW ，
+
+                上面有详细的操作步骤，按照上面的说明一步步操作下去，最后把生产的代码嵌
+
+                入到你的网站即可。
+
+                至此，你的网站就可以实现多言切换了，很方便，很准确，在这里还有一点要提醒
+
+                一下，如果想要网站完全进行翻译，要把原先做成图片的文字改成输入文字，这样谷
+
+                歌翻译工具才能进行翻译。
+
+                忘记合诉大家申请“Google 翻译”工具需要有Google电邮帐户才可以的,哈哈
+
+                本站已成功安装Google 翻译”工具(在网页左上角)欢迎大家测试。
+                想让你的网站或博客也能让外国朋友看得懂或是做简繁转换吗？哪有什么办法
+
+                可以实现网站自动翻译呢。哈哈，对使用“Google翻译”，就可以达到这个效果。
+
+                只要在网页上插入一个小工具就可以搞定啦！“Google翻译”使用很简单，
+
+                工具地址:http://translate.google.com/manager/website/?hl=zh-TW ，
+
+                上面有详细的操作步骤，按照上面的说明一步步操作下去，最后把生产的代码嵌
+
+                入到你的网站即可。
+
+                至此，你的网站就可以实现多言切换了，很方便，很准确，在这里还有一点要提醒
+
+                一下，如果想要网站完全进行翻译，要把原先做成图片的文字改成输入文字，这样谷
+
+                歌翻译工具才能进行翻译。
+
+                忘记合诉大家申请“Google 翻译”工具需要有Google电邮帐户才可以的,哈哈
+
+                本站已成功安装Google 翻译”工具(在网页左上角)欢迎大家测试。
+                想让你的网站或博客也能让外国朋友看得懂或是做简繁转换吗？哪有什么办法
+
+                可以实现网站自动翻译呢。哈哈，对使用“Google翻译”，就可以达到这个效果。
+
+                只要在网页上插入一个小工具就可以搞定啦！“Google翻译”使用很简单，
+
+                工具地址:http://translate.google.com/manager/website/?hl=zh-TW ，
+
+                上面有详细的操作步骤，按照上面的说明一步步操作下去，最后把生产的代码嵌
+
+                入到你的网站即可。
+
+                至此，你的网站就可以实现多言切换了，很方便，很准确，在这里还有一点要提醒
+
+                一下，如果想要网站完全进行翻译，要把原先做成图片的文字改成输入文字，这样谷
+
+                歌翻译工具才能进行翻译。
+
+                忘记合诉大家申请“Google 翻译”工具需要有Google电邮帐户才可以的,哈哈
+
+                本站已成功安装Google 翻译”工具(在网页左上角)欢迎大家测试。
+            </div>
+        </div>
+       
+    </div>
+    <!-- details navi-->
+    <div class="mobileListDetailsNavi">
+        <div>
+            <i class="icon-chevron-left"></i>
+        </div>
+    </div>
+    <!-- details navi-->
     <!-- left div start -->
     <div class="position-left-div-mask"></div>
     <div class="position-left-div">
@@ -556,7 +697,15 @@
         </div>
     </div>
     <!-- left div end -->
+
+    <script src="~/blog/js/fastclick.js" type="text/javascript"></script>
     <script>
+
+        //使用fastclick 解决click事件300ms的延迟问题
+        window.addEventListener('load', function () {
+            FastClick.attach(document.body);
+        }, false);
+
         var dom = document;
         var positionLeftDiv = dom.querySelector('.position-left-div');
         var positionLeftDivMark = dom.querySelector('.position-left-div-mask');
@@ -567,6 +716,9 @@
         conf.mobileIndex = dom.querySelector('#mobileIndex');//index
         conf.mobileList = dom.querySelector('#mobileList');//list
         conf.mobileMessage = dom.querySelector('#mobileMessage');//message
+        conf.mobileListDetails = dom.querySelector('#mobileListDetails');//details
+        conf.mobileListDetailsNavi = dom.querySelector('.mobileListDetailsNavi');
+        conf.mobileDetailsparent = null; //details parent 
         conf.mobileForm = dom.querySelector('.mobileForm');//
         conf.imageList = new Array(),conf.imageID = new Array();
         conf.naviList = dom.querySelector('.topnavi-list');
@@ -582,7 +734,7 @@
                 dom.ontouchstart = function () {
                     return true;
                 }
-            }, 1000);
+            }, 1500);
             positionLeftDiv.style.cssText = 'transform:translate3d(-' + bodyWidth + 'px,0,0);';
             setTimeout(function () {
                 positionLeftDiv.className += ' transitionall';
@@ -592,20 +744,31 @@
             }
             conf.mobileList.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0)';
             conf.mobileMessage.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0)';
+            conf.mobileListDetails.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0)';
+            conf.mobileListDetailsNavi.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0)';
         }();
-        dom.addEventListener('touchend', function (e) {
+        dom.addEventListener('click', function (e) {
             var _target = e.target, f = true;
             while (f) {
                 if (_target.className == 'mobileForm') {
                     f = false;
                     mobileFormSwitch(_target);//切换
+                } else if (_target.className == 'mobileDetails') {
+                    mobiledetails(_target);
+                    f = false;
                 }
                 else if (_target.localName == 'body') {
                     f = false;
-                }else {
+                } else {
                     _target = _target.parentNode;
                 }
             }
+            mobiledetailsnavi(_target);
+        });
+        conf.mobileListDetailsNavi.addEventListener('click', function (e) {
+            conf.mobileDetailsparent.style.cssText = 'transform:translate(0,0);';
+            conf.main.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0);';
+            conf.main = conf.mobileDetailsparent;
         });
         dom.getElementById('topnavi-ul').addEventListener('touchend', function (e) {
             var _target = e.target;
@@ -640,6 +803,21 @@
                 conf[_self].style.cssText = 'transform:translate(0,0);';
                 conf.main.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0)';
             conf.main = conf[_self];
+        }
+        function mobiledetails(a) {
+            var _self = a.getAttribute('data-id');
+            conf.mobileDetailsparent = conf.main;//上级信息
+            conf.mobileListDetails.style.cssText = 'transform:translate(0,0);';
+            conf.main.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0);';
+            conf.main = conf.mobileListDetails;
+        }
+        function mobiledetailsnavi(a) {
+            var _self = a.getAttribute('class');
+            if (conf.main.getAttribute('data-form') == conf.mobileListDetails.getAttribute('data-form')) {
+                conf.mobileListDetailsNavi.style.cssText = 'transform:translate(0,0);';
+            } else {
+                    conf.mobileListDetailsNavi.style.cssText = 'transform:translate(-' + bodyWidth + 'px,0);';
+            }
         }
         function ImageWidth(image,f) {
             var _self = image.children;
