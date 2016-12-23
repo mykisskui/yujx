@@ -391,9 +391,13 @@
     <Content Include="blog\images\ti.png" />
     <Content Include="blog\images\vis.jpg" />
     <Content Include="blog\images\xgt.jpg" />
+    <Content Include="blog\js\Angular.js" />
+    <Content Include="blog\js\angular.min.js" />
     <Content Include="blog\js\baidutuisong.js" />
     <Content Include="blog\js\base.js" />
+    <Content Include="blog\js\fastclick.js" />
     <Content Include="blog\js\Hub.js" />
+    <Content Include="blog\js\mobiledata.js" />
     <Content Include="blog\js\modernizr.js" />
     <Content Include="blog\js\navscroll.js" />
     <Content Include="blog\js\newslayout.js" />

@@ -13,3 +13,4 @@
 2016-12-13 17:24:14	测试11111
 2016-12-13 17:24:14	过了一个坎
 2016-12-13 17:24:14	context:VEz7h/2oeq9FnpOgdJ2FKQ==
+2016-12-23 16:39:25	在控制器“Mykisskui.Controllers.BlogController”上未找到公共操作方法“js”。

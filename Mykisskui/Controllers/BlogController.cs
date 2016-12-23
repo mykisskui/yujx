@@ -20,8 +20,14 @@ namespace Mykisskui.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            ViewBag.data = Configs.articleListData(1);
-            return View();
+            if (Configs.userAgent())
+            {
+                ViewBag.data = Configs.articleListData(1);
+                return View();
+            }
+            else {
+                return RedirectToAction("index", "mobile");
+            }
         }
         /// <summary>
         /// 新闻列表
