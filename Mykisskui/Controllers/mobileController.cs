@@ -20,8 +20,9 @@ namespace Mykisskui.Controllers
         /// 모바일 뉴스 list
         /// </summary>
         /// <returns></returns>
-        public ActionResult NewsList() {
-            return View();
+        public ActionResult NewsList(int id = 0) {
+            article art = mobileDetails(id);
+            return View(art);
         }
         /// <summary>
         /// PWA를 사용 하여 개발 test
@@ -74,6 +75,16 @@ namespace Mykisskui.Controllers
             sb.Append("]");
             result = sb.ToString();
             return result;
+        }
+        /// <summary>
+        /// 返回对应编号的数据
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public article mobileDetails(int data = 0) {
+            string result = string.Empty;
+            IEnumerable<article> art = Configs.articleListData(2,0,data);
+            return art.First();
         }
         /// <summary>
         /// 输出输出列表

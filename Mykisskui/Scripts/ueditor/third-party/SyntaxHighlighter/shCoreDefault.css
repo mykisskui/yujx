@@ -35,6 +35,7 @@
     border: 1px solid #ccc !important;
     border-radius: 4px !important;
     border-collapse: separate !important;
+     word-break:break-all;
 }
 
     .syntaxhighlighter.source {

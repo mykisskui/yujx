@@ -61,7 +61,6 @@ namespace Mykisskui.Models
                         }
                         break;
                     case 2:
-
                         List<article> art = TopDownsub(article.ToList(), id);
                         Model.NewDetailsTopDown.top = art[0];
                         Model.NewDetailsTopDown.down = art[1];

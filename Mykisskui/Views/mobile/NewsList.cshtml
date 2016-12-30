@@ -1,3 +1,87 @@
 ﻿@{
     Layout = string.Empty;
+    Mykisskui.article item = Model;
 }
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <script src="/Scripts/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+        <link href="/Scripts/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" />
+        <script type="text/javascript">
+
+    SyntaxHighlighter.all();
+
+        </script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            #mobileListDetails {
+                white-space:initial!important;
+                overflow:hidden;
+                text-overflow:ellipsis;
+            }
+              #mobileListDetails > div:nth-child(1) {
+                padding:5px 5px;
+            }
+                #mobileListDetails > div:nth-child(1) > div:nth-child(1) {
+                    font-size:16px;
+                }
+                #mobileListDetails > div:nth-child(1) > div:nth-child(2) {
+                    color:#464545;
+                    font-size:12px;
+                    padding:5px 0;
+                }
+                #mobileListDetails > div:nth-child(1) > div:nth-child(3) {
+                    font-size:14px;
+                }
+            * {
+                  white-space:initial!important;
+                  word-break:break-all!important;
+            }
+            img {
+                height:auto;
+            }
+        </style>
+    </head>
+<body>
+ <div id="mobileListDetails">
+    <div>
+        <div id="testwidth">
+            @item.Title
+        </div>
+        <div>
+            <span>@item.Time.Value.ToString("yyyy-MM-dd hh:mm")</span>
+            <span>浏览(@item.read)</span>
+            <span>评论(@item.tread)</span>
+        </div>
+        <div>
+          @Html.Raw(item.Text)
+        </div>
+    </div>
+     </div>
+
+    <script>
+        var frame = window.parent.document.querySelector('#mobileItemFrame');
+        //mobileItemFrame
+        var mobileWidth = frame.clientWidth;
+      //  testwidth.innerText += mobileWidth + ":";
+      window.onload = function () {
+           mobileListDetails.style.cssText = 'width:' + mobileWidth + 'px!important;';
+          // testwidth.innerText += mobileWidth+";";
+            var all = document.all;
+            for (var i = 0; i < all.length; i++) {
+                if (all[i].clientWidth > mobileWidth) {
+                    all[i].style.cssText = 'width:' + (mobileWidth - 10) + 'px!important;';
+                }
+            }
+
+
+       }
+    </script>
+</body>
+</html>

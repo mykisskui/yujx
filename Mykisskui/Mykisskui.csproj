@@ -336,6 +336,7 @@
     <Content Include="blog\css\AdminArticle.css" />
     <Content Include="blog\css\base.css" />
     <Content Include="blog\css\index.css" />
+    <Content Include="blog\css\layout_2.css" />
     <Content Include="blog\css\login.css" />
     <Content Include="blog\css\media.css" />
     <Content Include="blog\css\music.css" />
@@ -364,6 +365,8 @@
     <Content Include="blog\images\bg.gif" />
     <Content Include="blog\images\bg.jpg" />
     <Content Include="blog\images\bg.png" />
+    <Content Include="blog\images\bgm.jpg" />
+    <Content Include="blog\images\bgm1.jpg" />
     <Content Include="blog\images\buttonbackground.png" />
     <Content Include="blog\images\col.jpg" />
     <Content Include="blog\images\color.jpg" />
@@ -391,16 +394,20 @@
     <Content Include="blog\images\ti.png" />
     <Content Include="blog\images\vis.jpg" />
     <Content Include="blog\images\xgt.jpg" />
+    <Content Include="blog\js\angular-sanitize.min.js" />
     <Content Include="blog\js\Angular.js" />
     <Content Include="blog\js\angular.min.js" />
     <Content Include="blog\js\baidutuisong.js" />
     <Content Include="blog\js\base.js" />
+    <Content Include="blog\js\element.js" />
     <Content Include="blog\js\fastclick.js" />
     <Content Include="blog\js\Hub.js" />
+    <Content Include="blog\js\mainzh-CN.js" />
     <Content Include="blog\js\mobiledata.js" />
     <Content Include="blog\js\modernizr.js" />
     <Content Include="blog\js\navscroll.js" />
     <Content Include="blog\js\newslayout.js" />
+    <Content Include="blog\js\rainyday.js" />
     <Content Include="blog\js\silder.js" />
     <Content Include="blog\js\stackblur.js" />
     <Content Include="css\details.css" />

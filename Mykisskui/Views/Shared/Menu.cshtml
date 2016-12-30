@@ -1,8 +1,12 @@
 ﻿@{
     IEnumerable<Mykisskui.Navi> navis = Mykisskui.Models.Configs.naviListData();
 }
+<link href="~/blog/css/layout_2.css" rel="stylesheet" />
 
+<script src="http://open.sojson.com/common/js/canvas-nest.min.js" count="200" zindex="-2" opacity="0.5" color="47,135,193" type="text/javascript"></script>
+@*<script src="~/blog/js/rainyday.js" type="text/javascript"></script>
 
+<img src="" id="image" />*@
     <header>
         @*<h1>如影随形</h1>
             <h2>影子是一个会撒谎的精灵，它在虚空中流浪和等待被发现之间;在存在与不存在之间....</h2>*@
@@ -19,3 +23,17 @@
     <a href="/blog/NewList">文章</a><a href="share.html">模板分享</a><a href="new.html">模板主题</a>*@
         </nav>
     </header>
+@*<script>
+
+    var image = document.getElementById('image');
+    
+    image.onload = function () {
+        image.style.cssText = 'width:'+document.body.clientWidth+'px;height:'+document.body.clientHeight+'px;';
+            var eng = RainyDay({
+                image: this
+            });
+            eng.rain([[3, 2, 2]], 100);
+        }
+        image.src = "/blog/images/007.jpg";
+        image.crossOrigin = "anonymous";
+</script>*@

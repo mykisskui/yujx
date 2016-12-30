@@ -1,0 +1,117 @@
+﻿
+header,.about_c ,.tj_t1,.tj_t2,.tj_news h2 p,.copyright,.autor,.news > div > div,.news > div > div > div{
+    background:inherit!important;
+}
+nav {
+    /*background:rgba(255,255,255,0.95)!important;*/
+}
+nav a:hover{
+    background:#5e5b5b;
+    color:#fff;
+}
+    nav a {
+        color:#FFF;
+        font-weight:100;
+    }
+.ibody {
+    box-shadow:0px 0px 10px rgba(199, 199, 199, 0.53);
+    background:url()!important;
+    background:rgba(0, 0, 0, 0.61)!important
+}
+
+
+#topnav_current {
+      background:#5e5b5b;
+    color:#fff;
+}
+aside {
+    /*background:inherit!important;*/
+}
+.bloglist {
+    background:rgba(22, 22, 22, 0.82);
+}
+.about_c {
+    color:#e2e2e2;
+}
+    .about_c p {
+        border-bottom:1px solid #f2f2f2;
+        padding:0;
+    }
+    .about_c p {
+       background:initial!important;
+    }
+
+.tj_t1,.tj_t2,.tj_news h2 p {
+    border-bottom:1px solid #ece5e5;
+    color:#FFF;
+    text-shadow:inherit!important;
+}
+.tj_news ul {
+    background:inherit!important;
+}
+    .tj_news ul li {
+        background:inherit!important;
+
+    }
+        .tj_news ul li a {
+            color:#e2e2e2;
+        }
+            .tj_news ul li a:hover, .links ul li a:hover {
+                text-decoration:none;
+                color:#fff;
+                background:rgba(34, 34, 34, 0.23);
+                padding:0 30px;
+            }
+.copyright {
+    border:inherit!important;
+}
+    .copyright p {
+        text-shadow:inherit!important;
+        color:#222;
+
+    }
+a.readmore {
+    background:#222!important;
+}
+.blogs ul {
+    word-wrap:break-word;
+    color:#fff;
+}
+.news {
+    background:#000;
+}
+.news_navi > ul {
+    /*border-left:inherit!important;
+    border-right:inherit!important;*/
+}
+.news_layout > div > a {
+    color:#fff;
+}
+.news_loading > i {
+    color:#fff;
+}
+.bloglist h2 p {
+    background:#222!important;
+}
+.news > div > div > div {
+    background:#222!important;
+}
+.news_navi_li_on {
+    background:#fff!important;
+    color:#222!important;
+}
+.news > div > div {
+  background:rgb(54, 54, 54)!important;
+}
+.blogs h3 a {
+    color:#e2e2e2;
+}
+.newblog h3 a {
+    color:#e2e2e2;
+}
+.newblog ul {
+    color:#b6b6b6;
+}
+.newdetailsarticle {
+    background:#fff;
+}

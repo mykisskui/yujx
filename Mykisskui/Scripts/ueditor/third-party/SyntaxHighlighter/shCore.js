@@ -1024,6 +1024,8 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
                 'load',
                 function() { sh.highlight(params); }
             );
+        },
+    
         }
     }; // end of sh
 
@@ -1264,6 +1266,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
      */
     function attachEvent(obj, type, func, scope)
     {
+
         function handler(e)
         {
             e = e || window.event;
@@ -1279,7 +1282,6 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
 
             func.call(scope || window, e);
         };
-
         if (obj.attachEvent)
         {
             obj.attachEvent('on' + type, handler);
@@ -3604,7 +3606,6 @@ typeof(exports) != 'undefined' ? exports.SyntaxHighlighter = SyntaxHighlighter :
 {
 	// CommonJS
 	SyntaxHighlighter = SyntaxHighlighter || (typeof require !== 'undefined'? require('shCore').SyntaxHighlighter : null);
-
 	function Brush()
 	{
 		function process(match, regexInfo)

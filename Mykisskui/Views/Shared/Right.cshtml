@@ -25,6 +25,8 @@
         height: 30px;
         padding: 0 20px;
         margin: 10px 0px !important;
+        border:1px solid #d5d0d0;
+        outline:none;
     }
 
     .goog-te-gadget {
@@ -37,6 +39,7 @@
 </style>
 <aside>
     <div id="google_translate_element"></div>
+    <script src="/Scripts/jquery-1.8.2.min.js"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({ pageLanguage: 'zh-CN', includedLanguages: 'ko,zh-CN', autoDisplay: false }, 'google_translate_element');
@@ -49,11 +52,16 @@
                     div[i].remove();
                 }
             }
+            //
+             
 
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    @*<script type="text/javascript" src="~/blog/js/element.js?cb=googleTranslateElementInit"></script>*@
     <div data-value=""></div>
+ 
+ 
     @*<div class="avatar"><a href="javascript:void(0);"><span>yu</span></a></div>*@
     <div class="about_c">
         <p>学</p>
@@ -73,7 +81,6 @@
                     <li><a href="/Blog/New/@item.Id">@item.Title</a></li>
                 }
              }
-            }
             @*<li><a href="/">犯错了怎么办？</a></li>
             <li><a href="/">两只蜗牛艰难又浪漫的一吻</a></li>
             <li><a href="/">春暖花开-走走停停-发现美</a></li>
